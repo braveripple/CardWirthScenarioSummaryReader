@@ -1,5 +1,5 @@
 # CardWirthScenarioSummaryReader(CWSSR)
-CardWirthのシナリオ概要を取得するPowerShellモジュール
+CardWirthのシナリオディレクトリやアーカイブファイルからシナリオ概要を取得するPowerShellモジュール
 
 ***デモ***
 
@@ -35,18 +35,34 @@ CardWirthのシナリオ概要を取得するPowerShellモジュール
 指定したパスのシナリオ概要を取得します。
 * エイリアス：`gcw`
 ```powershell
-Get-CardWirthScenario
+Get-CardWirthScenario ゴブリンの洞窟
 ```
 
 ### Get-CardWirthScenarioList
-指定したパスとパス直下のシナリオ概要一覧を取得します。
+
+指定したパスとパス以下のシナリオ概要一覧を取得します。
+
 パスを省略した場合はカレントディレクトリとカレントディレクトリ以下のシナリオ概要一覧を取得します。
+
 * エイリアス：`lscw`
+
 ```powershell
-Get-CardWirthScenarioList .
+Get-CardWirthScenarioList
 ```
 
 ### Test-CardWirthScenario
+
 指定したパスがCardWirthのシナリオかどうかを判定します。
+
 シナリオの場合はTrueが返ります。
-シナリオが見つからない、Summaryファイルが見つからない、Summaryファイルの読み込みに失敗した、
+
+以下の場合はすべてFalseが返ります。
+* シナリオが見つからない、Summaryファイルが見つからない、Summaryファイルの読み込みに失敗したなどの例外が発生したとき
+* パラメーターに指定したシナリオ形式やシナリオ格納形式に一致しなかったとき
+
+このコマンドレットはスクリプトで使用することを想定しているため、エイリアスはありません。
+
+```powershell
+Test-CardWirthScenario ゴブリンの洞窟
+True
+```
