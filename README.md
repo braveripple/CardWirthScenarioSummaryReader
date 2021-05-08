@@ -3,7 +3,7 @@ CardWirthのシナリオ概要を取得するPowerShellモジュール
 
 ***デモ***
 
-![Screenshot](https://github.com/braveripple/CardWirthScenarioSummaryReader/blob/master/Assets/demo.gif?raw=true)
+![デモ](https://github.com/braveripple/CardWirthScenarioSummaryReader/blob/master/Assets/demo.gif?raw=true)
 
 ## 動作環境
 * Windows
@@ -11,6 +11,7 @@ CardWirthのシナリオ概要を取得するPowerShellモジュール
   * PowerShell Core
 
 ## 機能
+以下の３つのコマンドレットがあります
 * Get-CardWirthScenarioコマンドレットによるシナリオ概要の取得
 * Get-CardWirthScenarioListコマンドレットによるシナリオ概要一覧の取得
 * Test-CardWirthScenarioコマンドレットによるシナリオの判定
@@ -29,9 +30,23 @@ CardWirthのシナリオ概要を取得するPowerShellモジュール
 * WSN拡張子で圧縮されたシナリオ
 
 ## 各コマンドレットの簡単な説明
+
 ### Get-CardWirthScenario
-指定したパスの
+指定したパスのシナリオ概要を取得します。
+* エイリアス：`gcw`
+```powershell
+Get-CardWirthScenario
+```
 
 ### Get-CardWirthScenarioList
-### Test-CardWirthScenario
+指定したパスとパス直下のシナリオ概要一覧を取得します。
+パスを省略した場合はカレントディレクトリとカレントディレクトリ以下のシナリオ概要一覧を取得します。
+* エイリアス：`lscw`
+```powershell
+Get-CardWirthScenarioList .
+```
 
+### Test-CardWirthScenario
+指定したパスがCardWirthのシナリオかどうかを判定します。
+シナリオの場合はTrueが返ります。
+シナリオが見つからない、Summaryファイルが見つからない、Summaryファイルの読み込みに失敗した、
