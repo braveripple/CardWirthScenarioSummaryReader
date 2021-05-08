@@ -1,4 +1,4 @@
 # CardWirthScenarioSummaryReader
 CardWirthのシナリオ概要を取得するPowerShellモジュール
 
-![Screenshot](https://raw.githubusercontent.com/braveripple/CardWirthScenarioSummaryReader/master/Assets/demo.gif)
+![Screenshot](https://github.com/braveripple/CardWirthScenarioSummaryReader/blob/master/Assets/demo.gif?raw=true)
