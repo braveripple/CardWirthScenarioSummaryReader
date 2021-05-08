@@ -1,0 +1,56 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>CardWirthScenarioSummaryReader</AssemblyName>
+    <Authors>braveripple</Authors>
+    <Description>PowerShell module that get CardWirth scenario information from the Summary file in a directory or archive file.</Description>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Copyright>© 2021 braveripple.</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PowerShellStandard.Library" Version="5.1.0">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Libs\MSFTCompressionCab\Microsoft.Deployment.Compression.dll">
+      <Link>Microsoft.Deployment.Compression.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Libs\MSFTCompressionCab\Microsoft.Deployment.Compression.Cab.dll">
+      <Link>Microsoft.Deployment.Compression.Cab.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <Reference Include="CardWirthScenarioSummaryReaderTool">
+      <HintPath>..\Libs\CardWirthScenarioSummaryReaderTool\CardWirthScenarioSummaryReaderTool.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <None Update="CardWirthScenarioSummaryReader.format.ps1xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="CardWirthScenarioSummaryReader.psd1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="CardWirthScenarioSummaryReader.types.ps1xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

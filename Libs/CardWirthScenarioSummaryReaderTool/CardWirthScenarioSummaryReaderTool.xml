@@ -1,0 +1,816 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CardWirthScenarioSummaryReaderTool</name>
+    </assembly>
+    <members>
+        <member name="T:BraveRipple.CardWirthScenarioSummaryReaderTool.CardWirthScenario">
+            <summary>
+            CardWirthScenarioSummaryReaderToolのAPIクラス
+            </summary>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.CardWirthScenario.GetScenarioSummary(System.String)">
+            <summary>
+            パスからシナリオ情報を取得する
+            </summary>
+            <param name="path">シナリオのディレクトリ、またはアーカイブファイルの絶対パス</param>
+            <returns>シナリオ情報</returns>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.CardWirthScenario.IsScenarioSummary(System.String,BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ScenarioParameterType)">
+            <summary>
+            パスが指定したシナリオ形式のシナリオかどうか判定する
+            </summary>
+            <param name="path">シナリオのディレクトリ、またはアーカイブファイルの絶対パス</param>
+            <param name="scenarioType">シナリオ形式</param>
+            <returns>シナリオの場合true, シナリオでない場合false</returns>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.CardWirthScenario.IsScenarioSummary(System.String,BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ContainerParameterType)">
+            <summary>
+            パスが指定したシナリオ格納形式のシナリオかどうか判定する
+            </summary>
+            <param name="path">シナリオのディレクトリ、またはアーカイブファイルの絶対パス</param>
+            <param name="containerType">シナリオ格納形式</param>
+            <returns>シナリオの場合true, シナリオでない場合false</returns>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.CardWirthScenario.IsScenarioSummary(System.String,BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ScenarioParameterType,BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ContainerParameterType)">
+            <summary>
+            パスが指定したシナリオ形式とシナリオ格納形式のシナリオかどうか判定する
+            </summary>
+            <param name="path">シナリオのディレクトリ、またはアーカイブファイルの絶対パス</param>
+            <param name="scenarioType">シナリオ形式。未指定またはAnyの場合はすべてのシナリオ形式が対象</param>
+            <param name="containerType">シナリオ格納形式。未指定またはAnyの場合はすべてのシナリオ格納形式が対象</param>
+            <returns>シナリオの場合true, シナリオでない場合false</returns>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.CardWirthScenario.ConvertToScenarioType(BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ScenarioParameterType)">
+            <summary>
+            <see cref="T:BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ScenarioParameterType"/>を<see cref="T:BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ScenarioType"/>に変換する
+            </summary>
+            <param name="scenarioParameterType">シナリオ形式</param>
+            <returns></returns>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.CardWirthScenario.ConvertToContainerType(BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ContainerParameterType)">
+            <summary>
+            <see cref="T:BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ContainerParameterType"/>を<see cref="T:BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ContainerType"/>に変換する
+            </summary>
+            <param name="containerParameterType">シナリオ格納形式</param>
+            <returns></returns>
+        </member>
+        <member name="T:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario.ScenarioMetaData">
+            <summary>
+            シナリオ格納場所（ディレクトリまたはアーカイブ）のメタ情報クラス
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario.ScenarioMetaData.ContainerType">
+            <summary>
+            シナリオ格納タイプ
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario.ScenarioMetaData.LastWriteTime">
+            <summary>
+            シナリオ格納場所の更新日時
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario.ScenarioMetaData.FullName">
+            <summary>
+            シナリオ格納場所の絶対パス
+            </summary>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario.ScenarioMetaData.#ctor(BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ContainerType,System.DateTime,System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="containerType"></param>
+            <param name="lastWriteTime"></param>
+            <param name="fullName"></param>
+        </member>
+        <member name="T:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario.ScenarioSummary">
+            <summary>
+            シナリオ概要
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario.ScenarioSummary.ScenarioType">
+            <summary>
+            シナリオ形式
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario.ScenarioSummary.LevelMin">
+            <summary>
+            対象レベル下限値
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario.ScenarioSummary.LevelMax">
+            <summary>
+            対象レベル上限値
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario.ScenarioSummary.Name">
+            <summary>
+            シナリオ名
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario.ScenarioSummary.Author">
+            <summary>
+            制作者
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario.ScenarioSummary.Description">
+            <summary>
+            解説
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario.ScenarioSummary.SummaryInfo">
+            <summary>
+            Summaryファイル情報
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario.ScenarioSummary.ContainerType">
+            <summary>
+            シナリオ格納形式
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario.ScenarioSummary.LastWriteTime">
+            <summary>
+            シナリオ格納場所の更新日時
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario.ScenarioSummary.FullName">
+            <summary>
+            シナリオ格納場所の絶対パス
+            </summary>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario.ScenarioSummary.#ctor(BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ScenarioType,System.Int32,System.Int32,System.String,System.String,System.String,BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.ISummary,BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ContainerType,System.DateTime,System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="scenarioType"></param>
+            <param name="levelMin"></param>
+            <param name="levelMax"></param>
+            <param name="name"></param>
+            <param name="author"></param>
+            <param name="description"></param>
+            <param name="summaryInfo"></param>
+            <param name="containerType"></param>
+            <param name="lastWriteTime"></param>
+            <param name="fullName"></param>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario.ScenarioSummary.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.Flag">
+            <summary>
+            フラグ情報
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.Flag.Name">
+            <summary>
+            フラグ名
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.Flag.Default">
+            <summary>
+            デフォルト値
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.Flag.TrueValue">
+            <summary>
+            TRUEの場合の値
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.Flag.FalseValue">
+            <summary>
+            FALSEの場合の値
+            </summary>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.Flag.#ctor(System.String,System.Boolean,System.String,System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="name"></param>
+            <param name="defaultValue"></param>
+            <param name="trueValue"></param>
+            <param name="falseValue"></param>
+        </member>
+        <member name="T:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.ISummary">
+            <summary>
+            Summaryファイルの解析情報を扱うインターフェース
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.ISummary.Name">
+            <summary>
+            シナリオ名
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.ISummary.Description">
+            <summary>
+            解説
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.ISummary.Author">
+            <summary>
+            制作者
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.ISummary.RequiredCoupons">
+            <summary>
+            必要とする称号
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.ISummary.RequiredCouponCount">
+            <summary>
+            必要とする称号の数
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.ISummary.DataVersion">
+            <summary>
+            データバージョン
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.ISummary.StartAreaId">
+            <summary>
+            開始エリアID
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.ISummary.StepCount">
+            <summary>
+            ステップの数
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.ISummary.Steps">
+            <summary>
+            ステップ情報
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.ISummary.FlagCount">
+            <summary>
+            フラグの数
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.ISummary.Flags">
+            <summary>
+            フラグ情報
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.ISummary.LevelMin">
+            <summary>
+            対象レベル下限値
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.ISummary.LevelMax">
+            <summary>
+            対象レベル上限値
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.ISummary.LastWriteTime">
+            <summary>
+            Summaryファイルのファイル更新日時
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.ISummary.Length">
+            <summary>
+            Summaryファイルのファイルサイズ
+            </summary>
+        </member>
+        <member name="T:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.Step">
+            <summary>
+            ステップ情報
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.Step.Name">
+            <summary>
+            ステップ名
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.Step.DefaultValue">
+            <summary>
+            デフォルト値
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.Step.Values">
+            <summary>
+            ステップの内容
+            </summary>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.Step.#ctor(System.String,System.Int32,System.String[])">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="name"></param>
+            <param name="defaultValue"></param>
+            <param name="values"></param>
+        </member>
+        <member name="T:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryMetaData">
+            <summary>
+            Summaryファイルのファイルメタ情報クラス
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryMetaData.LastWriteTime">
+            <summary>
+            更新日時
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryMetaData.Length">
+            <summary>
+            ファイルサイズ
+            </summary>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryMetaData.#ctor(System.DateTime,System.Int64)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="lastWriteTime"></param>
+            <param name="length"></param>
+        </member>
+        <member name="T:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryWsm">
+            <summary>
+            Summary.wsmの解析情報
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryWsm.Image">
+            <summary>
+            貼り紙のBITMAP画像データ
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryWsm.Name">
+            <summary>
+            シナリオ名
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryWsm.Description">
+            <summary>
+            解説
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryWsm.Author">
+            <summary>
+            制作者
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryWsm.RequiredCoupons">
+            <summary>
+            必要とする称号
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryWsm.RequiredCouponCount">
+            <summary>
+            必要とする称号の数
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryWsm.DataVersion">
+            <summary>
+            データバージョン
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryWsm.StartAreaId">
+            <summary>
+            開始エリアID
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryWsm.StepCount">
+            <summary>
+            ステップの数
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryWsm.Steps">
+            <summary>
+            ステップ情報
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryWsm.FlagCount">
+            <summary>
+            フラグの数
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryWsm.Flags">
+            <summary>
+            フラグ情報
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryWsm.LevelMin">
+            <summary>
+            対象レベル下限値
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryWsm.LevelMax">
+            <summary>
+            対象レベル上限値
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryWsm.LastWriteTime">
+            <summary>
+            Summary.wsmのファイル更新日時
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryWsm.Length">
+            <summary>
+            Summary.wsmのファイルサイズ
+            </summary>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryWsm.#ctor(System.Byte[],System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.Step[],System.Int32,BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.Flag[],System.Int32,System.Int32,System.DateTime,System.Int64)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="image"></param>
+            <param name="name"></param>
+            <param name="description"></param>
+            <param name="author"></param>
+            <param name="requiredCoupons"></param>
+            <param name="requiredCouponCount"></param>
+            <param name="dataVersion"></param>
+            <param name="startAreaId"></param>
+            <param name="stepCount"></param>
+            <param name="steps"></param>
+            <param name="flagCount"></param>
+            <param name="flags"></param>
+            <param name="levelMin"></param>
+            <param name="levelMax"></param>
+            <param name="lastWriteTime"></param>
+            <param name="length"></param>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryWsm.ToString">
+            <summary>
+            Summaryファイルのファイル名を文字列として返します。
+            </summary>
+            <returns>Summaryファイル名の文字列</returns>
+        </member>
+        <member name="T:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryWsmBinary">
+            <summary>
+            Summary.wsmのバイナリ情報
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryWsmBinary.BinaryData">
+            <summary>
+            Summary.wsmのバイナリデータ
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryWsmBinary.SummaryMetaData">
+            <summary>
+            Summary.wsmのファイルメタ情報
+            </summary>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryWsmBinary.#ctor(System.Byte[],BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryMetaData)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="binaryData"></param>
+            <param name="summaryMetaData"></param>
+        </member>
+        <member name="T:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryXml">
+            <summary>
+            Summary.xmlの解析情報
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryXml.Name">
+            <summary>
+            シナリオ名
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryXml.ImagePaths">
+            <summary>
+            貼り紙の画像ファイルの相対パス
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryXml.Description">
+            <summary>
+            解説
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryXml.Author">
+            <summary>
+            制作者
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryXml.RequiredCoupons">
+            <summary>
+            必要とする称号
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryXml.RequiredCouponCount">
+            <summary>
+            必要とする称号の数
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryXml.DataVersion">
+            <summary>
+            データバージョン
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryXml.StartAreaId">
+            <summary>
+            開始エリアID
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryXml.StepCount">
+            <summary>
+            ステップの数
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryXml.Steps">
+            <summary>
+            ステップ情報
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryXml.FlagCount">
+            <summary>
+            フラグの数
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryXml.Flags">
+            <summary>
+            フラグ情報
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryXml.LevelMin">
+            <summary>
+            対象レベル下限値
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryXml.LevelMax">
+            <summary>
+            対象レベル上限値
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryXml.LastWriteTime">
+            <summary>
+            Summary.xmlのファイル更新日時
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryXml.Length">
+            <summary>
+            Summary.xmlのファイルサイズ
+            </summary>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryXml.#ctor(System.String,System.String[],System.String,System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.Step[],System.Int32,BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.Flag[],System.Int32,System.Int32,System.DateTime,System.Int64)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="name"></param>
+            <param name="imagePaths"></param>
+            <param name="description"></param>
+            <param name="author"></param>
+            <param name="requiredCoupons"></param>
+            <param name="requiredCouponCount"></param>
+            <param name="dataVersion"></param>
+            <param name="startAreaId"></param>
+            <param name="stepCount"></param>
+            <param name="steps"></param>
+            <param name="flagCount"></param>
+            <param name="flags"></param>
+            <param name="levelMin"></param>
+            <param name="levelMax"></param>
+            <param name="lastWriteTime"></param>
+            <param name="length"></param>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryXml.ToString">
+            <summary>
+            Summaryファイルのファイル名を文字列として返します。
+            </summary>
+            <returns>Summaryファイル名の文字列</returns>
+        </member>
+        <member name="T:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryXmlBinary">
+            <summary>
+            Summary.xmlのバイナリ情報
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryXmlBinary.XmlText">
+            <summary>
+            Summary.xmlのテキストデータ
+            </summary>
+        </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryXmlBinary.SummaryMetaData">
+            <summary>
+            Summary.xmlのファイルメタ情報
+            </summary>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryXmlBinary.#ctor(System.String,BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryMetaData)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="xmlText"></param>
+            <param name="summaryMetaData"></param>
+        </member>
+        <member name="T:BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ContainerParameterType">
+            <summary>
+            シナリオの格納形式<br />
+            シナリオ判定APIのパラメーター用<br />
+            <see cref="M:BraveRipple.CardWirthScenarioSummaryReaderTool.CardWirthScenario.IsScenarioSummary(System.String,BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ContainerParameterType)"/><br />
+            <see cref="M:BraveRipple.CardWirthScenarioSummaryReaderTool.CardWirthScenario.IsScenarioSummary(System.String,BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ScenarioParameterType,BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ContainerParameterType)"/><br />
+            </summary>
+        </member>
+        <member name="F:BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ContainerParameterType.Any">
+            <summary>
+            ディレクトリ、ZIP、CAB、WSNのいずれか
+            </summary>
+        </member>
+        <member name="F:BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ContainerParameterType.Directory">
+            <summary>
+            ディレクトリ
+            </summary>
+        </member>
+        <member name="F:BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ContainerParameterType.ZipFile">
+            <summary>
+            ZIP
+            </summary>
+        </member>
+        <member name="F:BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ContainerParameterType.CabFile">
+            <summary>
+            CAB
+            </summary>
+        </member>
+        <member name="F:BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ContainerParameterType.WsnFile">
+            <summary>
+            WSN
+            </summary>
+        </member>
+        <member name="T:BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ContainerType">
+            <summary>
+            シナリオの格納形式
+            </summary>
+        </member>
+        <member name="F:BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ContainerType.None">
+            <summary>
+            未設定
+            </summary>
+        </member>
+        <member name="F:BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ContainerType.Directory">
+            <summary>
+            ディレクトリ
+            </summary>
+        </member>
+        <member name="F:BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ContainerType.ZipFile">
+            <summary>
+            ZIP
+            </summary>
+        </member>
+        <member name="F:BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ContainerType.CabFile">
+            <summary>
+            CAB
+            </summary>
+        </member>
+        <member name="F:BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ContainerType.WsnFile">
+            <summary>
+            WSN
+            </summary>
+        </member>
+        <member name="T:BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ScenarioParameterType">
+            <summary>
+            シナリオ形式<br />
+            シナリオ判定APIのパラメーター用<br />
+            <see cref="M:BraveRipple.CardWirthScenarioSummaryReaderTool.CardWirthScenario.IsScenarioSummary(System.String,BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ScenarioParameterType)"/><br />
+            <see cref="M:BraveRipple.CardWirthScenarioSummaryReaderTool.CardWirthScenario.IsScenarioSummary(System.String,BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ScenarioParameterType,BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ContainerParameterType)"/><br />
+            </summary>
+        </member>
+        <member name="F:BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ScenarioParameterType.Any">
+            <summary>
+            クラシック形式、NEXT形式、WSN形式のいずれか
+            </summary>
+        </member>
+        <member name="F:BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ScenarioParameterType.Classic">
+            <summary>
+            クラシック形式
+            </summary>
+        </member>
+        <member name="F:BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ScenarioParameterType.Next">
+            <summary>
+            NEXT景色
+            </summary>
+        </member>
+        <member name="F:BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ScenarioParameterType.Wsn">
+            <summary>
+            WSN形式
+            </summary>
+        </member>
+        <member name="T:BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ScenarioType">
+            <summary>
+            シナリオ形式
+            </summary>
+        </member>
+        <member name="F:BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ScenarioType.None">
+            <summary>
+            未設定
+            </summary>
+        </member>
+        <member name="F:BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ScenarioType.Classic">
+            <summary>
+            クラシック形式
+            </summary>
+        </member>
+        <member name="F:BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ScenarioType.Next">
+            <summary>
+            NEXT形式
+            </summary>
+        </member>
+        <member name="F:BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ScenarioType.Wsn">
+            <summary>
+            WSN形式
+            </summary>
+        </member>
+        <member name="T:BraveRipple.CardWirthScenarioSummaryReaderTool.Exceptions.InvalidScenarioException">
+            <summary>
+            不正なシナリオのとき投げる例外<br />
+            Summaryファイルが見つからなかったり<br />
+            Summaryファイルの読み込み中に例外が発生した場合はすべてこの例外で対応する<br />
+            </summary>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Exceptions.InvalidScenarioException.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Exceptions.InvalidScenarioException.#ctor(System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Exceptions.InvalidScenarioException.#ctor(System.String,System.Exception)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="T:BraveRipple.CardWirthScenarioSummaryReaderTool.Exceptions.ScenarioNotFoundException">
+            <summary>
+            シナリオのパスがファイルシステム上に見つからなかったとき投げる例外<br />
+            </summary>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Exceptions.ScenarioNotFoundException.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Exceptions.ScenarioNotFoundException.#ctor(System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Exceptions.ScenarioNotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="T:BraveRipple.CardWirthScenarioSummaryReaderTool.Exceptions.UnsupportedContainerTypeException">
+            <summary>
+            シナリオが未対応の格納形式のときに投げる例外<br />
+            </summary>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Exceptions.UnsupportedContainerTypeException.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Exceptions.UnsupportedContainerTypeException.#ctor(System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Exceptions.UnsupportedContainerTypeException.#ctor(System.String,System.Exception)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="T:BraveRipple.CardWirthScenarioSummaryReaderTool.Readers.SummaryWsmBinaryReader">
+            <summary>
+            Summary.wsmのバイナリ情報読み取りクラス
+            </summary>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Readers.SummaryWsmBinaryReader.#ctor(BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryWsmBinary)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="summaryWsmBinary"></param>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Readers.SummaryWsmBinaryReader.Read">
+            <summary>
+            コンストラクタで設定したバイナリ情報を読み取り、解析情報を取得する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BraveRipple.CardWirthScenarioSummaryReaderTool.Readers.SummaryXmlBinaryReader">
+            <summary>
+            Summary.xmlのバイナリ情報読み取りクラス
+            </summary>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Readers.SummaryXmlBinaryReader.#ctor(BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary.SummaryXmlBinary)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="summaryXmlBinary"></param>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Readers.SummaryXmlBinaryReader.Read">
+            <summary>
+            コンストラクタで設定したバイナリ情報を読み取り、解析情報を取得する
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

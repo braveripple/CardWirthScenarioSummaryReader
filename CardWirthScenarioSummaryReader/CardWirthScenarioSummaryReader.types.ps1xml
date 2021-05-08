@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Types>
+  <Type>
+    <Name>BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario.ScenarioSummary</Name>
+    <Members>
+      <MemberSet>
+        <Name>PSStandardMembers</Name>
+        <Members>
+          <PropertySet>
+            <Name>DefaultDisplayPropertySet</Name>
+            <ReferencedProperties>
+              <Name>ScenarioType</Name>
+              <Name>ContainerType</Name>
+              <Name>LevelMin</Name>
+              <Name>LevelMax</Name>
+              <Name>Name</Name>
+              <Name>Author</Name>
+              <Name>Description</Name>
+            </ReferencedProperties>
+          </PropertySet>
+        </Members>
+      </MemberSet>
+      <!-- PSPath -->
+      <ScriptProperty>
+        <Name>PSPath</Name>
+        <GetScriptBlock>
+          Convert-Path $this.FullName
+        </GetScriptBlock>
+      </ScriptProperty>
+      <!-- 平均レベル -->
+      <ScriptProperty>
+        <Name>LevelAverage</Name>
+        <GetScriptBlock>
+          [Math]::Floor(($this.LevelMin, $this.LevelMax | Measure-Object -Average).Average)
+        </GetScriptBlock>
+      </ScriptProperty>
+    </Members>
+  </Type>
+</Types>
