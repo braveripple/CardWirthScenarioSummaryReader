@@ -2,9 +2,9 @@
 <Configuration>
   <ViewDefinitions>
     <View>
-      <Name>BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario.ScenarioSummary.TableView</Name>
+      <Name>BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.ScenarioSummary.TableView</Name>
       <ViewSelectedBy>
-        <TypeName>BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario.ScenarioSummary</TypeName>
+        <TypeName>BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.ScenarioSummary</TypeName>
       </ViewSelectedBy>
       <TableControl>
         <TableHeaders>
@@ -74,9 +74,9 @@
       </TableControl>
     </View>
     <View>
-      <Name>BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario.ScenarioSummary.ListView</Name>
+      <Name>BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.ScenarioSummary.ListView</Name>
       <ViewSelectedBy>
-        <TypeName>BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario.ScenarioSummary</TypeName>
+        <TypeName>BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.ScenarioSummary</TypeName>
       </ViewSelectedBy>
       <ListControl>
         <ListEntries>
@@ -109,9 +109,9 @@
       </ListControl>
     </View>
     <View>
-      <Name>BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario.ScenarioSummary.WideView</Name>
+      <Name>BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.ScenarioSummary.WideView</Name>
       <ViewSelectedBy>
-        <TypeName>BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario.ScenarioSummary</TypeName>
+        <TypeName>BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.ScenarioSummary</TypeName>
       </ViewSelectedBy>
       <WideControl>
         <WideEntries>
