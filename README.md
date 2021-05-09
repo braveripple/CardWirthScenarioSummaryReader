@@ -95,7 +95,7 @@ True
 |SummaryInfo|Summaryファイルの情報|
 |LastWriteTime|シナリオ格納場所の更新日時|
 |FullName|シナリオ格納場所の絶対パス|
-|LevelAverage*|対象レベル平均値|
+|Level*|対象レベル|
 |PSPath*|シナリオ格納場所の絶対パス(FullNameと同じ)|
 
 以下の場合はすべてFalseが返ります。
