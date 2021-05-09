@@ -25,8 +25,8 @@ CardWirthのシナリオディレクトリやアーカイブファイルから�
 ## 対応しているシナリオ格納形式
 以下のシナリオ格納形式に対応しています
 * ディレクトリに格納されたシナリオ
-* ZIP拡張子で圧縮されたシナリオ
 * CAB拡張子で圧縮されたシナリオ
+* ZIP拡張子で圧縮されたシナリオ
 * WSN拡張子で圧縮されたシナリオ
 
 ## 各コマンドレットの簡単な説明
@@ -63,9 +63,9 @@ Classic      Directory            0        0 交易都市リューン         �
 
 指定したパスがCardWirthのシナリオかどうかを判定します。
 
-シナリオの場合はTrueが返ります。
+シナリオである、かつ指定条件にあてはまる場合はTrueが返ります。
 
-シナリオではない、または指定したシナリオ形式とシナリオ格納形式にあてはまらない場合はFalseが返ります。
+シナリオではない、または指定条件にあてはまらない場合はFalseが返ります。
 
 このコマンドレットはスクリプトで使用することを想定しているため、エイリアスはありません。
 
@@ -74,20 +74,24 @@ Test-CardWirthScenario ゴブリンの洞窟
 True
 ```
 
-|Title|Type|Description|
-|:---|:---|:---|
-|ScenarioType｜シナリオ形式|Classic,Next,Wsn|
-|ContainerType｜シナリオ格納形式|Directory,ZipFile,CabFile,WsnFile|
-|LevelMin｜対象レベル下限値|説明|
-|LevelMax｜対象レベル上限値|説明|
-|Name｜シナリオ名|説明|
-|Author｜制作者|説明|
-|Description｜解説|説明|
-|SummaryInfo｜Summaryファイルの情報|説明|
-|LastWriteTime｜シナリオ格納場所の更新日時|説明|
-|FullName｜シナリオ格納場所の絶対パス|説明|
-|LevelAverage｜平均レベル|説明|
-|PSPath｜シナリオ格納場所の絶対パス|説明|
+## 出力形式の説明
+
+`*`がついているプロパティはPowerShellモジュール用に追加されたプロパティです。
+
+|プロパティ名|説明|
+|:---|:---|
+|ScenarioType|シナリオ形式<br>Classic, Next, Wsnのいずれか|
+|ContainerType|シナリオ格納形式<br>Directory, CabFile, ZipFile, WsnFileのいずれか|
+|LevelMin|対象レベル下限値|
+|LevelMax|対象レベル上限値|
+|Name|シナリオ名|
+|Author|制作者|
+|Description|解説|
+|SummaryInfo|Summaryファイルの情報|
+|LastWriteTime|シナリオ格納場所の更新日時|
+|FullName|シナリオ格納場所の絶対パス|
+|LevelAverage*|平均レベル|
+|PSPath*|シナリオ格納場所の絶対パス(FullNameと同じ)|
 
 以下の場合はすべてFalseが返ります。
 * シナリオが見つからない、Summaryファイルが見つからない、Summaryファイルの読み込みに失敗したなどの例外が発生したとき
