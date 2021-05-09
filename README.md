@@ -11,23 +11,30 @@ CardWirthのシナリオディレクトリや圧縮ファイルからシナリ�
   * PowerShell Core
 
 ## 機能
-以下の３つのコマンドレットがあります
+以下の３つのコマンドレットがあります。
 * Get-CardWirthScenarioコマンドレットによるシナリオ概要の取得
 * Get-CardWirthScenarioListコマンドレットによるシナリオ概要一覧の取得
 * Test-CardWirthScenarioコマンドレットによるシナリオの判定
 
 ## 対応しているシナリオ形式
-以下のシナリオ形式に対応しています
+以下のシナリオ形式に対応しています。
 * CardWirthのシナリオエディタで作成したシナリオ（以下、Classic形式）
 * CardWirthNextのシナリオエディタで作成したシナリオ（以下、Next形式）
 * CardWirthPy Reboot のシナリオエディタで作成したシナリオ（以下、WSN形式）
 
 ## 対応しているシナリオ格納形式
-以下のシナリオ格納形式に対応しています
+以下のシナリオ格納形式に対応しています。
 * ディレクトリに格納されたシナリオ
 * CAB拡張子で圧縮されたシナリオ
 * ZIP拡張子で圧縮されたシナリオ
 * WSN拡張子で圧縮されたシナリオ
+
+## インストール方法
+
+PowerShell Galleryで公開する予定
+```powershell
+Install-Module -Name CardWirthScenarioSummaryReader -Scope CurrentUser
+```
 
 ## 各コマンドレットの簡単な説明
 
