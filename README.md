@@ -35,7 +35,11 @@ CardWirthのシナリオディレクトリやアーカイブファイルから�
 指定したパスのシナリオ概要を取得します。
 * エイリアス：`gcw`
 ```powershell
-Get-CardWirthScenario ゴブリンの洞窟
+> Get-CardWirthScenario .\ゴブリンの洞窟\
+
+ScenarioType ContainerType LevelMin LevelMax Name                     Author               Description
+------------ ------------- -------- -------- ----                     ------               -----------
+Classic      Directory            1        3 ゴブリンの洞窟           齋藤 洋              　町外れの洞窟にゴブリンと…
 ```
 
 ### Get-CardWirthScenarioList
@@ -47,7 +51,12 @@ Get-CardWirthScenario ゴブリンの洞窟
 * エイリアス：`lscw`
 
 ```powershell
-Get-CardWirthScenarioList
+> Get-CardWirthScenarioList
+
+ScenarioType ContainerType LevelMin LevelMax Name                     Author               Description
+------------ ------------- -------- -------- ----                     ------               -----------
+Classic      Directory            1        3 ゴブリンの洞窟           齋藤 洋              　町外れの洞窟にゴブリンと…
+Classic      Directory            0        0 交易都市リューン         斎藤 洋                冒険者よ、旅の準備は本当…
 ```
 
 ### Test-CardWirthScenario
@@ -56,9 +65,7 @@ Get-CardWirthScenarioList
 
 シナリオの場合はTrueが返ります。
 
-以下の場合はすべてFalseが返ります。
-* シナリオが見つからない、Summaryファイルが見つからない、Summaryファイルの読み込みに失敗したなどの例外が発生したとき
-* パラメーターに指定したシナリオ形式やシナリオ格納形式に一致しなかったとき
+シナリオではない、または指定したシナリオ形式とシナリオ格納形式にあてはまらない場合はFalseが返ります。
 
 このコマンドレットはスクリプトで使用することを想定しているため、エイリアスはありません。
 
@@ -66,3 +73,22 @@ Get-CardWirthScenarioList
 Test-CardWirthScenario ゴブリンの洞窟
 True
 ```
+
+|Title|Type|Description|
+|:---|:---|:---|
+|ScenarioType｜シナリオ形式|Classic,Next,Wsn|
+|ContainerType｜シナリオ格納形式|Directory,ZipFile,CabFile,WsnFile|
+|LevelMin｜対象レベル下限値|説明|
+|LevelMax｜対象レベル上限値|説明|
+|Name｜シナリオ名|説明|
+|Author｜制作者|説明|
+|Description｜解説|説明|
+|SummaryInfo｜Summaryファイルの情報|説明|
+|LastWriteTime｜シナリオ格納場所の更新日時|説明|
+|FullName｜シナリオ格納場所の絶対パス|説明|
+|LevelAverage｜平均レベル|説明|
+|PSPath｜シナリオ格納場所の絶対パス|説明|
+
+以下の場合はすべてFalseが返ります。
+* シナリオが見つからない、Summaryファイルが見つからない、Summaryファイルの読み込みに失敗したなどの例外が発生したとき
+* パラメーターに指定したシナリオ形式やシナリオ格納形式に一致しなかったとき
