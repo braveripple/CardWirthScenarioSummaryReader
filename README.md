@@ -1,5 +1,5 @@
 # CardWirthScenarioSummaryReader(CWSSR)
-CardWirthのシナリオディレクトリやアーカイブファイルからシナリオ概要を取得するPowerShellモジュール
+CardWirthのシナリオディレクトリや圧縮ファイルからシナリオ概要を取得するPowerShellモジュール
 
 ***デモ***
 
