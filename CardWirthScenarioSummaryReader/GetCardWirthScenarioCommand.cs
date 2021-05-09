@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Management.Automation;
 using BraveRipple.CardWirthScenarioSummaryReaderTool;
-using BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario;
+using BraveRipple.CardWirthScenarioSummaryReaderTool.Entities;
 using BraveRipple.CardWirthScenarioSummaryReaderTool.Exceptions;
 
 namespace CardWirthScenarioSummaryReader

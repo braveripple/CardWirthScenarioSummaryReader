@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Types>
   <Type>
-    <Name>BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario.ScenarioSummary</Name>
+    <Name>BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.ScenarioSummary</Name>
     <Members>
       <MemberSet>
         <Name>PSStandardMembers</Name>
@@ -21,17 +21,28 @@
         </Members>
       </MemberSet>
       <!-- PSPath -->
-      <ScriptProperty>
+      <AliasProperty>
         <Name>PSPath</Name>
-        <GetScriptBlock>
-          Convert-Path $this.FullName
-        </GetScriptBlock>
-      </ScriptProperty>
-      <!-- 平均レベル -->
+        <ReferencedMemberName>
+          FullName
+        </ReferencedMemberName>
+      </AliasProperty>
+      <!-- 対象レベル -->
       <ScriptProperty>
-        <Name>LevelAverage</Name>
+        <Name>Level</Name>
         <GetScriptBlock>
-          [Math]::Floor(($this.LevelMin, $this.LevelMax | Measure-Object -Average).Average)
+          $levelMin = $this.LevelMin
+          $levelMax = $this.LevelMax
+
+          if ($levelMin -eq $levelMax) {
+            if ($levelMin -eq 0) {
+              "なし"
+            } else {
+              "${levelMin}" 
+            }
+          } else {
+            "{0:#}～{1:#}" -f $levelMin, $levelMax
+          }
         </GetScriptBlock>
       </ScriptProperty>
     </Members>
