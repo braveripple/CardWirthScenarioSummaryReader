@@ -11,6 +11,7 @@
 
     NestedModules = @('CardWirthScenarioSummaryReader.dll')
     RequiredAssemblies = @(
+        '.\CardWirthScenarioSummaryReaderTool.dll',
         '.\Microsoft.Deployment.Compression.dll',
         '.\Microsoft.Deployment.Compression.Cab.dll'
     )
