@@ -207,6 +207,11 @@
             シナリオ形式
             </summary>
         </member>
+        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.ScenarioSummary.ContainerType">
+            <summary>
+            シナリオ格納形式
+            </summary>
+        </member>
         <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.ScenarioSummary.LevelMin">
             <summary>
             対象レベル下限値
@@ -237,11 +242,6 @@
             Summaryファイル情報
             </summary>
         </member>
-        <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.ScenarioSummary.ContainerType">
-            <summary>
-            シナリオ格納形式
-            </summary>
-        </member>
         <member name="P:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.ScenarioSummary.LastWriteTime">
             <summary>
             シナリオ格納場所の更新日時
@@ -252,18 +252,18 @@
             シナリオ格納場所の絶対パス
             </summary>
         </member>
-        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.ScenarioSummary.#ctor(BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ScenarioType,System.Int32,System.Int32,System.String,System.String,System.String,BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.ISummary,BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ContainerType,System.DateTime,System.String)">
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.ScenarioSummary.#ctor(BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ScenarioType,BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ContainerType,System.Int32,System.Int32,System.String,System.String,System.String,BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.ISummary,System.DateTime,System.String)">
             <summary>
             コンストラクタ
             </summary>
             <param name="scenarioType"></param>
+            <param name="containerType"></param>
             <param name="levelMin"></param>
             <param name="levelMax"></param>
             <param name="name"></param>
             <param name="author"></param>
             <param name="description"></param>
             <param name="summaryInfo"></param>
-            <param name="containerType"></param>
             <param name="lastWriteTime"></param>
             <param name="fullName"></param>
         </member>
