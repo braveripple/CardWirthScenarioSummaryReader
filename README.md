@@ -11,22 +11,30 @@ CardWirthのシナリオディレクトリや圧縮ファイルからシナリ�
   * PowerShell Core
 
 ## 機能
+
 以下の３つのコマンドレットがあります。
 * Get-CardWirthScenarioコマンドレットによるシナリオ概要の取得
 * Get-CardWirthScenarioListコマンドレットによるシナリオ概要一覧の取得
 * Test-CardWirthScenarioコマンドレットによるシナリオの判定
 
+### 一歩踏み込んだ使い方
 また、PowerShellのコマンドレットと組み合わせることで以下のことが行えます。
 * シナリオ概要の閲覧、検索、集計、グルーピング
 * シナリオのコピー、移動、圧縮、解凍
+* etc
 
-### 対応シナリオ形式
+例えば以下のワンライナーは現在のディレクトリにあるディレクトリに格納されたシナリオをZIP圧縮します。
+```powershell
+lscw -Directory | % { Compress-Archive -LiteralPath $_.FullName -DestinationPath ($_.FullName + ".zip") -Force }
+```
+
+## 対応シナリオ形式
 以下のシナリオ形式に対応しています。
 * CardWirthのシナリオエディタで作成したシナリオ（以下、クラシック形式）
 * CardWirthNextのシナリオエディタで作成したシナリオ（以下、NEXT形式）
 * CardWirthPy Reboot のシナリオエディタで作成したシナリオ（以下、WSN形式）
 
-### 対応シナリオ格納形式
+## 対応シナリオ格納形式
 以下のシナリオ格納形式に対応しています。
 * ディレクトリに格納されたシナリオ
 * CAB拡張子で圧縮されたシナリオ
