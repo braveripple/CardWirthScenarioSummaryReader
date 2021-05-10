@@ -17,16 +17,10 @@ CardWirthのシナリオディレクトリや圧縮ファイルからシナリ�
 * Get-CardWirthScenarioListコマンドレットによるシナリオ概要一覧の取得
 * Test-CardWirthScenarioコマンドレットによるシナリオの判定
 
-### 一歩踏み込んだ使い方
 また、PowerShellのコマンドレットと組み合わせることで以下のことが行えます。
 * シナリオ概要の閲覧、検索、集計、グルーピング
 * シナリオのコピー、移動、圧縮、解凍
 * etc
-
-例えば以下のワンライナーは現在のディレクトリにあるディレクトリに格納されたシナリオをZIP圧縮します。
-```powershell
-lscw -Directory | % { Compress-Archive -LiteralPath $_.FullName -DestinationPath ($_.FullName + ".zip") -Force }
-```
 
 ## 対応シナリオ形式
 以下のシナリオ形式に対応しています。
@@ -111,6 +105,18 @@ True
 |FullName|シナリオ格納場所の絶対パス|
 |Level*|対象レベル|
 |PSPath*|シナリオ格納場所の絶対パス(FullNameと同じ)|
+
+## 一歩踏み込んだ使い方
+
+例えば以下のワンライナーは現在のディレクトリにあるディレクトリに格納されたシナリオをZIP圧縮します。
+```powershell
+lscw -Directory | % { Compress-Archive -LiteralPath $_.FullName -DestinationPath ($_.FullName + ".zip") -Force }
+```
+例えば以下のワンライナーは現在のディレクトリにあるシナリオを対象レベル別のディレクトリに分類します。
+```powershell
+lscw | Group-Object -Property Level | % { $dir = mkdir $_.Name -Force; $_.Group | % { Move-Item -LiteralPath $_.FullName -Destination $dir.FullName } }
+```
+ワンライナーは便利ですが、初めて行う操作は *必ず* シナリオのバックアップを取ってください。
 
 ## ライセンス
 
