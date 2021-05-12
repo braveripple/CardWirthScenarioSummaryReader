@@ -34,6 +34,10 @@
       <Link>Microsoft.Deployment.Compression.Cab.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="..\Libs\SharpZipLib\ICSharpCode.SharpZipLib.dll">
+      <Link>ICSharpCode.SharpZipLib.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="..\LICENSE">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
