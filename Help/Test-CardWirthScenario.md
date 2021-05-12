@@ -27,7 +27,11 @@ Test-CardWirthScenario -LiteralPath <String[]> [-ScenarioType <ScenarioParameter
 ## DESCRIPTION
 指定したパスがCardWirthのシナリオかどうかを判定します。
 
-シナリオである、かつ指定条件にあてはまる場合はTrueが返ります。それ以外の場合はFalseが返ります。
+シナリオであり、かつ、指定条件にあてはまる場合はTrueが返ります。
+
+以下の場合はすべてFalseが返ります。
+* シナリオが見つからない、Summaryファイルが見つからない、Summaryファイルの読み込みに失敗したなどの例外が発生したとき
+* パラメーターに指定したシナリオ形式やシナリオ格納形式に一致しなかったとき
 
 このコマンドレットはスクリプトで使うことを想定しているため、エイリアスはありません。
 
