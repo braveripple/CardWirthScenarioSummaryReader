@@ -89,6 +89,12 @@
             <param name="trueValue"></param>
             <param name="falseValue"></param>
         </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Flag.ToString">
+            <summary>
+            フラグ名を文字列として返します。
+            </summary>
+            <returns>フラグ名の文字列</returns>
+        </member>
         <member name="T:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.ISummary">
             <summary>
             Summaryファイルの解析情報を扱うインターフェース
@@ -300,6 +306,12 @@
             <param name="name"></param>
             <param name="defaultValue"></param>
             <param name="values"></param>
+        </member>
+        <member name="M:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Step.ToString">
+            <summary>
+            ステップ名を文字列として返します。
+            </summary>
+            <returns>ステップ名の文字列</returns>
         </member>
         <member name="T:BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.SummaryMetaData">
             <summary>
