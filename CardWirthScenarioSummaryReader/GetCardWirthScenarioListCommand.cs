@@ -228,10 +228,9 @@ namespace CardWirthScenarioSummaryReader
 
                                             WriteObject(scenarioSummary);
                                         }
-                                        catch (Exception)
+                                        catch (Exception ex)
                                         {
-                                            // TODO:エラー処理を何とかする
-                                            WriteVerbose("ERROR!");
+                                            WriteVerbose("error:" + ex.Message);
                                             continue;
                                         }
                                     }
@@ -336,10 +335,9 @@ namespace CardWirthScenarioSummaryReader
 
                                     WriteObject(scenarioSummary);
                                 }
-                                catch (Exception)
+                                catch (Exception ex)
                                 {
-                                    // エラー処理を何とかする
-                                    WriteVerbose("ERROR!");
+                                    WriteVerbose("error:" + ex.Message);
                                     continue;
                                 }
                             }
