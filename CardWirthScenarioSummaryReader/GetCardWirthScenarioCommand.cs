@@ -132,7 +132,11 @@ namespace CardWirthScenarioSummaryReader
                             WriteVerbose("fullName:" + info.FullName);
                             WriteObject(CardWirthScenario.GetScenarioSummary(info.FullName));
                         }
-                        // ScenarioNotFoundExceptionについては、InvokeProvider.Item.Getで精査されているのでここではcatchしない
+                        catch (ScenarioNotFoundException ex)
+                        {
+                            WriteError(new ErrorRecord(ex, "ScenarioNotFoundException", ErrorCategory.ObjectNotFound, info.FullName));
+                            continue;
+                        }
                         catch (UnsupportedContainerTypeException ex)
                         {
                             WriteError(new ErrorRecord(ex, "UnsupportedContainerTypeException", ErrorCategory.InvalidArgument, info.FullName));
