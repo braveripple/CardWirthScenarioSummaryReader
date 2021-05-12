@@ -38,10 +38,14 @@
             if ($levelMin -eq 0) {
               "なし"
             } else {
-              "${levelMin}" 
+              "{0:00}" -f ${levelMin}
             }
           } else {
-            "{0:#}～{1:#}" -f $levelMin, $levelMax
+            if ($levelMax -eq 0) {
+              "{0:00}～" -f $levelMin
+            } else {
+              "{0:00}～{1:00}" -f $levelMin, $levelMax
+            }
           }
         </GetScriptBlock>
       </ScriptProperty>
