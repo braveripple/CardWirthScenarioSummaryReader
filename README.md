@@ -11,18 +11,24 @@ CardWirthのシナリオディレクトリや圧縮ファイルからシナリ�
   * PowerShell Core
 
 ## 機能
+
 以下の３つのコマンドレットがあります。
 * Get-CardWirthScenarioコマンドレットによるシナリオ概要の取得
 * Get-CardWirthScenarioListコマンドレットによるシナリオ概要一覧の取得
 * Test-CardWirthScenarioコマンドレットによるシナリオの判定
 
-### 対応シナリオ形式
+また、PowerShellのコマンドレットと組み合わせることで以下のことが行えます。
+* シナリオ概要の閲覧、検索、集計、グルーピング
+* シナリオのコピー、移動、圧縮、解凍
+* etc
+
+## 対応シナリオ形式
 以下のシナリオ形式に対応しています。
-* CardWirthのシナリオエディタで作成したシナリオ（以下、Classic形式）
-* CardWirthNextのシナリオエディタで作成したシナリオ（以下、Next形式）
+* CardWirthのシナリオエディタで作成したシナリオ（以下、クラシック形式）
+* CardWirthNextのシナリオエディタで作成したシナリオ（以下、NEXT形式）
 * CardWirthPy Reboot のシナリオエディタで作成したシナリオ（以下、WSN形式）
 
-### 対応シナリオ格納形式
+## 対応シナリオ格納形式
 以下のシナリオ格納形式に対応しています。
 * ディレクトリに格納されたシナリオ
 * CAB拡張子で圧縮されたシナリオ
@@ -53,7 +59,7 @@ Classic      Directory            1        3 ゴブリンの洞窟           齋
 
 指定したパスとパス以下のシナリオ概要一覧を取得します。
 
-パスを省略した場合はカレントディレクトリとカレントディレクトリ以下のシナリオ概要一覧を取得します。
+パスを省略した場合は現在のディレクトリと現在のディレクトリ以下のシナリオ概要一覧を取得します。
 
 * エイリアス：`lscw`
 
@@ -70,7 +76,7 @@ Classic      Directory            0        0 交易都市リューン         �
 
 指定したパスがCardWirthのシナリオかどうかを判定します。
 
-シナリオである、かつ指定条件にあてはまる場合はTrueが返ります。それ以外の場合はFalseが返ります。
+シナリオであり、かつ、指定条件にあてはまる場合はTrueが返ります。それ以外の場合はFalseが返ります。
 
 このコマンドレットはスクリプトで使うことを想定しているため、エイリアスはありません。
 
@@ -80,6 +86,8 @@ True
 ```
 
 ## 出力形式の説明
+
+* TypeName: BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.ScenarioSummary
 
 `*`がついているプロパティはPowerShell用に追加されたプロパティです。
 
@@ -98,6 +106,29 @@ True
 |Level*|対象レベル|
 |PSPath*|シナリオ格納場所の絶対パス(FullNameと同じ)|
 
-以下の場合はすべてFalseが返ります。
-* シナリオが見つからない、Summaryファイルが見つからない、Summaryファイルの読み込みに失敗したなどの例外が発生したとき
-* パラメーターに指定したシナリオ形式やシナリオ格納形式に一致しなかったとき
+## 一歩踏み込んだ使い方
+
+例えば以下のワンライナーは現在のディレクトリにあるディレクトリに格納されたシナリオをZIP圧縮します。
+```powershell
+lscw -Directory | % { Compress-Archive -LiteralPath $_.FullName -DestinationPath ($_.FullName + ".zip") -Force }
+```
+例えば以下のワンライナーは現在のディレクトリにあるシナリオを対象レベル別のディレクトリに分類します。
+```powershell
+lscw | Group-Object -Property Level | % { $dir = mkdir $_.Name -Force; $_.Group | % { Move-Item -LiteralPath $_.FullName -Destination $dir.FullName } }
+```
+ワンライナーは便利ですが、初めて行う操作は *必ず* シナリオのバックアップを取ってください。
+
+## 想定される質問
+
+* シナリオ概要が取得できない
+  * パスに`[]`の文字が含まれている場合、-LiteralPathパラメーターを使わないと`[]`の文字がワイルドカードとして認識され、意図したシナリオが取得できなくなります。
+  * Get-CardWirthScenarioコマンドレットを使用してエラーメッセージを確認してください。主なシナリオ概要が取得できない原因は以下の通りです。
+    * 未対応のシナリオ格納形式だった。
+    * ディレクトリ、圧縮ファイルの中にSummary.wsm、Summary.xmlどちらも存在しなかった。
+    * 圧縮ファイルがパスワード付きZIPで解析できなかった。
+    * Summary.wsm、Summary.xmlの読み込みに失敗した。
+
+## ライセンス
+
+MITライセンスです。
+
