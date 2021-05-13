@@ -24,9 +24,9 @@ CardWirthのシナリオディレクトリや圧縮ファイルからシナリ�
 
 ## 対応シナリオ形式
 以下のシナリオ形式に対応しています。
-* CardWirthのシナリオエディタで作成したシナリオ（以下、クラシック形式）
-* CardWirthNextのシナリオエディタで作成したシナリオ（以下、NEXT形式）
-* CardWirthPy Reboot のシナリオエディタで作成したシナリオ（以下、WSN形式）
+* CardWirthのシナリオエディタで作成したシナリオ（クラシック形式）
+* CardWirthNextのシナリオエディタで作成したシナリオ（NEXT形式）
+* CardWirthPy Reboot のシナリオエディタで作成したシナリオ（WSN形式）
 
 ## 対応シナリオ格納形式
 以下のシナリオ格納形式に対応しています。
@@ -52,11 +52,11 @@ Install-Module -Name CardWirthScenarioSummaryReader -Scope CurrentUser
 
 #### 使用例
 ```powershell
-> Get-CardWirthScenario .\ゴブリンの洞窟\
+Get-CardWirthScenario .\ゴブリンの洞窟\
 
-ScenarioType ContainerType LevelMin LevelMax Name                     Author               Description
------------- ------------- -------- -------- ----                     ------               -----------
-Classic      Directory            1        3 ゴブリンの洞窟           齋藤 洋              　町外れの洞窟にゴブリンと…
+ScenarioType ContainerType LevelMin LevelMax Name                     Author    Description
+------------ ------------- -------- -------- ----                     ------    -----------
+Classic      Directory            1        3 ゴブリンの洞窟           齋藤 洋     町外れの洞窟にゴブリンと…
 ```
 
 #### 構文
@@ -75,12 +75,12 @@ Get-CardWirthScenario ([-Path] <String[]> | -LiteralPath <String[]>) [<CommonPar
 
 #### 使用例
 ```powershell
-> Get-CardWirthScenarioList
+Get-CardWirthScenarioList
 
-ScenarioType ContainerType LevelMin LevelMax Name                     Author               Description
------------- ------------- -------- -------- ----                     ------               -----------
-Classic      Directory            1        3 ゴブリンの洞窟           齋藤 洋              　町外れの洞窟にゴブリンと…
-Classic      Directory            0        0 交易都市リューン         斎藤 洋                冒険者よ、旅の準備は本当…
+ScenarioType ContainerType LevelMin LevelMax Name                     Author    Description
+------------ ------------- -------- -------- ----                     ------    -----------
+Classic      Directory            1        3 ゴブリンの洞窟           齋藤 洋     町外れの洞窟にゴブリンと…
+Classic      Directory            0        0 交易都市リューン         斎藤 洋     冒険者よ、旅の準備は本当…
 ```
 
 #### 構文
