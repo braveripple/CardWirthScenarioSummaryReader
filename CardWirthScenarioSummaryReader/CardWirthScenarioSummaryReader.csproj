@@ -38,10 +38,6 @@
       <Link>ICSharpCode.SharpZipLib.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\LICENSE">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
     <Reference Include="CardWirthScenarioSummaryReaderTool">
       <HintPath>..\Libs\CardWirthScenarioSummaryReaderTool\CardWirthScenarioSummaryReaderTool.dll</HintPath>
       <Private>true</Private>
@@ -50,6 +46,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="CardWirthScenarioSummaryReader.psd1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="CardWirthScenarioSummaryReader.psm1">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="CardWirthScenarioSummaryReader.types.ps1xml">
