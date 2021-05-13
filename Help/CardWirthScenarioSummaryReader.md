@@ -2,21 +2,21 @@
 Module Name: CardWirthScenarioSummaryReader
 Module Guid: 5567929f-9a31-4aba-973d-d1aaf762f11b
 Download Help Link: {{ Update Download Link }}
-Help Version: {{ Please enter version of help manually (X.X.X.X) format }}
-Locale: en-US
+Help Version: 1.0.0
+Locale: ja-JP
 ---
 
 # CardWirthScenarioSummaryReader Module
 ## Description
-{{ Fill in the Description }}
+CardWirthScenarioSummaryReaderの説明
 
 ## CardWirthScenarioSummaryReader Cmdlets
 ### [Get-CardWirthScenario](Get-CardWirthScenario.md)
-{{ Fill in the Description }}
+Get-CardWirthScenarioの説明
 
 ### [Get-CardWirthScenarioList](Get-CardWirthScenarioList.md)
-{{ Fill in the Description }}
+Get-CardWirthScenarioListの説明
 
 ### [Test-CardWirthScenario](Test-CardWirthScenario.md)
-{{ Fill in the Description }}
+Test-CardWirthScenarioの説明
 
