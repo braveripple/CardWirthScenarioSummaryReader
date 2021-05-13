@@ -13,7 +13,6 @@ namespace CardWirthScenarioSummaryReader
     /// </summary>
     [Cmdlet(VerbsCommon.Get, "CardWirthScenarioList", DefaultParameterSetName = "Items")]
     [OutputType(typeof(ScenarioSummary))]
-    [Alias("lscw")]
     public class GetCardWirthScenarioListCommand : PSCmdlet
     {
         /// <summary>

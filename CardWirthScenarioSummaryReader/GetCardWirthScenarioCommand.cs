@@ -12,7 +12,6 @@ namespace CardWirthScenarioSummaryReader
     /// </summary>
     [Cmdlet(VerbsCommon.Get, "CardWirthScenario", DefaultParameterSetName = "Path")]
     [OutputType(typeof(ScenarioSummary))]
-    [Alias("gcw")]
     public class GetCardWirthScenarioCommand : PSCmdlet
     {
 

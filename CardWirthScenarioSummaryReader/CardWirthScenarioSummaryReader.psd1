@@ -9,7 +9,7 @@
     CompanyName = 'braveripple'
     Copyright = '(c) 2021 braveripple.'
 
-    NestedModules = @('CardWirthScenarioSummaryReader.dll')
+    NestedModules = @('CardWirthScenarioSummaryReader.dll', 'CardWirthScenarioSummaryReader.psm1')
     RequiredAssemblies = @(
         '.\CardWirthScenarioSummaryReaderTool.dll',
         '.\Microsoft.Deployment.Compression.dll',
@@ -33,7 +33,7 @@
             LicenseUri = 'https://github.com/braveripple/CardWirthScenarioSummaryReader/blob/master/LICENSE'
             ProjectUri = 'https://github.com/braveripple/CardWirthScenarioSummaryReader'
             # IconUri = ''
-            # ReleaseNotes = 'https://github.com/braveripple/CardWirthScenarioSummaryReader/releases'
+            ReleaseNotes = 'https://github.com/braveripple/CardWirthScenarioSummaryReader/releases'
         }
     }
 }
