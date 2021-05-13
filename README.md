@@ -7,8 +7,8 @@ CardWirthのシナリオディレクトリや圧縮ファイルからシナリ�
 
 ## 動作環境
 * Windows
-  * Windows PowerShell 5.1
-  * PowerShell Core
+  * Windows PowerShell 5.1 (32bit/64bit)
+  * PowerShell Core (32bit/64bit)
 
 ## 機能
 
@@ -155,6 +155,9 @@ lscw | Group-Object -Property Level | % { $dir = mkdir $_.Name -Force; $_.Group 
     * ディレクトリ、圧縮ファイルの中にSummary.wsm、Summary.xmlファイルがどちらも存在しなかった。
     * 圧縮ファイルがパスワード付きZIPで解析できなかった。
     * Summary.wsm、Summary.xmlの読み込みに失敗した。
+
+### 日本語が文字化けする
+  * 日本語対応フォントをご使用ください。
 
 ## ライセンス
 
