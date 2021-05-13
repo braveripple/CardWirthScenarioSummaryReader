@@ -17,7 +17,7 @@
 Install-Module -Name CardWirthScenarioSummaryReader -Scope CurrentUser
 ```
 
-## :star2:機能
+## 🌟 機能
 
 以下の３つのコマンドレットがあります。
 * **[Get-CardWirthScenario](#Get-CardWirthScenario)** コマンドレットによるシナリオ概要の取得
@@ -51,7 +51,7 @@ Install-Module -Name CardWirthScenarioSummaryReader -Scope CurrentUser
 
 このため、Test-CardWirthScenarioコマンドレットについては厳密なシナリオの判定ではないことにご注意ください。
 
-## :closed_book:各コマンドレットの簡単な説明
+## 📕 各コマンドレットの簡単な説明
 
 ### Get-CardWirthScenario
 指定したパスのシナリオ概要を取得します。
@@ -122,7 +122,7 @@ Test-CardWirthScenario ([-Path] <String[]> | -LiteralPath <String[]>)
 ```
 
 
-## :page_facing_up:出力形式の説明
+## 📃 出力形式の説明
 
 * TypeName: BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.ScenarioSummary
 
@@ -143,7 +143,7 @@ Test-CardWirthScenario ([-Path] <String[]> | -LiteralPath <String[]>)
 |Level*|対象レベル|
 |PSPath*|シナリオ格納場所の絶対パス(FullNameと同じ)|
 
-## :question:想定される質問
+## ❓ 想定される質問
 
 ### 日本語が文字化けする
   * 日本語対応フォントを使用してください。
