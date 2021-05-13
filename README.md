@@ -134,6 +134,19 @@ Test-CardWirthScenario ([-Path] <String[]> | -LiteralPath <String[]>)
 |Level*|対象レベル|
 |PSPath*|シナリオ格納場所の絶対パス(FullNameと同じ)|
 
+## 想定される質問
+
+### 日本語が文字化けする
+  * 日本語対応フォントをご使用ください。
+
+### シナリオ概要が取得できない
+  * パスに`[]`の文字が含まれている場合、-LiteralPathパラメーターを使わないと`[]`の文字がワイルドカードとして認識され、意図したシナリオが取得できなくなります。
+  * Get-CardWirthScenarioコマンドレットを使用してエラーメッセージを確認してください。主なシナリオ概要が取得できない原因は以下の通りです。
+    * 未対応のシナリオ格納形式だった。(ディレクトリ、.cab、.zip、.wsnファイル以外をパスに指定した）
+    * ディレクトリ、圧縮ファイルの中にSummary.wsm、Summary.xmlファイルがどちらも存在しなかった。
+    * 圧縮ファイルがパスワード付きZIPで解析できなかった。
+    * Summary.wsm、Summary.xmlの読み込みに失敗した。
+
 ## 一歩踏み込んだ使い方
 
 現在のディレクトリにあるディレクトリに格納されたシナリオをZIP圧縮するワンライナー
@@ -145,19 +158,6 @@ lscw -Directory | % { Compress-Archive -LiteralPath $_.FullName -DestinationPath
 ```powershell
 lscw | Group-Object -Property Level | % { $dir = mkdir $_.Name -Force; $_.Group | % { Move-Item -LiteralPath $_.FullName -Destination $dir.FullName } }
 ```
-
-## 想定される質問
-
-### シナリオ概要が取得できない
-  * パスに`[]`の文字が含まれている場合、-LiteralPathパラメーターを使わないと`[]`の文字がワイルドカードとして認識され、意図したシナリオが取得できなくなります。
-  * Get-CardWirthScenarioコマンドレットを使用してエラーメッセージを確認してください。主なシナリオ概要が取得できない原因は以下の通りです。
-    * 未対応のシナリオ格納形式だった。(ディレクトリ、.cab、.zip、.wsnファイル以外をパスに指定した）
-    * ディレクトリ、圧縮ファイルの中にSummary.wsm、Summary.xmlファイルがどちらも存在しなかった。
-    * 圧縮ファイルがパスワード付きZIPで解析できなかった。
-    * Summary.wsm、Summary.xmlの読み込みに失敗した。
-
-### 日本語が文字化けする
-  * 日本語対応フォントをご使用ください。
 
 ## ライセンス
 
