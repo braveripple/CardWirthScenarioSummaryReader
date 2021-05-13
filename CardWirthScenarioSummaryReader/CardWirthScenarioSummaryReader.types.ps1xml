@@ -33,18 +33,19 @@
         <GetScriptBlock>
           $levelMin = $this.LevelMin
           $levelMax = $this.LevelMax
-
+          $levelLabel = "対象レベル："
+          
           if ($levelMin -eq $levelMax) {
             if ($levelMin -eq 0) {
-              "なし"
+              "${levelLabel}なし"
             } else {
-              "{0:00}" -f ${levelMin}
+              "${levelLabel}{0:00}" -f ${levelMin}
             }
           } else {
             if ($levelMax -eq 0) {
-              "{0:00}～" -f $levelMin
+              "${levelLabel}{0:00}～" -f $levelMin
             } else {
-              "{0:00}～{1:00}" -f $levelMin, $levelMax
+              "${levelLabel}{0:00}～{1:00}" -f $levelMin, $levelMax
             }
           }
         </GetScriptBlock>
