@@ -1,6 +1,9 @@
 # CardWirthScenarioSummaryReader(CWSSR)
 CardWirthのシナリオディレクトリや圧縮ファイルからシナリオ概要を取得するPowerShellモジュール
 
+
+
+
 ***デモ***
 
 ![デモ](https://github.com/braveripple/CardWirthScenarioSummaryReader/blob/master/Assets/demo.gif?raw=true)
@@ -9,6 +12,13 @@ CardWirthのシナリオディレクトリや圧縮ファイルからシナリ�
 * Windows
   * Windows PowerShell 5.1 (32bit/64bit)
   * PowerShell Core (32bit/64bit)
+
+### 使用ライブラリ
+
+* ZIPファイルの解析にSharpZipLibを使用しています。
+* CABファイルの解析にMSFTCompressionCabを使用しています。
+
+それぞれのライセンスについてはLICENSE.txtを参照してください。
 
 ## 機能
 
@@ -143,6 +153,8 @@ Test-CardWirthScenario ([-Path] <String[]> | -LiteralPath <String[]>)
 
 ### 日本語が文字化けする
   * 日本語対応フォントを使用してください。
+    * MS ゴシック
+    * RictyDiminished (https://github.com/edihbrandon/RictyDiminished)
 
 ### シナリオ概要が取得できない
   * パスに`[]`の文字が含まれている場合、-LiteralPathパラメーターを使わないと`[]`の文字がワイルドカードとして認識され、意図したシナリオが取得できなくなります。
