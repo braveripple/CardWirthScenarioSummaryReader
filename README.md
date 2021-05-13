@@ -173,6 +173,8 @@ lscw | Group-Object -Property Level | % { $dir = mkdir $_.Name -Force; $_.Group 
 
 CardWirthScenarioSummaryReaderは[MITライセンス](./LICENSE)です。
 
+## クレジット
+
 以下の自作ライブラリを使用しています。
 * CardWirthScenarioSummaryReaderTool
 
