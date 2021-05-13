@@ -178,6 +178,8 @@ lscw | Group-Object -Property Level | % { $dir = mkdir $_.Name -Force; $_.Group 
 
 ## クレジット
 
+以下のライブラリを使用しました。
+
 * CardWirthScenarioSummaryReaderTool(自作)
 * [icsharpcode/SharpZipLib](https://github.com/icsharpcode/SharpZipLib)
 * [MSFTCompressionCab](https://www.nuget.org/packages/MSFTCompressionCab)
