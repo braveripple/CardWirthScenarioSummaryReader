@@ -24,7 +24,7 @@ Install-Module -Name CardWirthScenarioSummaryReader -Scope CurrentUser
 
 
 以下の３つのコマンドレットがあります。
-* [Get-CardWirthScenario](#Get-CardWirthScenario) コマンドレットによるシナリオ概要の取得
+* **[Get-CardWirthScenario](#Get-CardWirthScenario)** コマンドレットによるシナリオ概要の取得
 * **Get-CardWirthScenarioList** コマンドレットによるシナリオ概要一覧の取得
 * **Test-CardWirthScenario** コマンドレットによるシナリオの判定
 
