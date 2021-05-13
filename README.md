@@ -1,11 +1,11 @@
 # CardWirthScenarioSummaryReader(CWSSR)
-CardWirthのシナリオディレクトリや圧縮ファイルからシナリオ概要を取得するPowerShellモジュール
+[CardWirth](https://cardwirth.net/)のシナリオディレクトリや圧縮ファイルからシナリオ概要を取得するPowerShellモジュール
 
 ***デモ***
 
 ![デモ](https://github.com/braveripple/CardWirthScenarioSummaryReader/blob/master/Assets/demo.gif?raw=true)
 
-## 動作環境
+## 💻 動作環境
 * Windows
   * Windows PowerShell 5.1 (32bit/64bit)
   * PowerShell Core (32bit/64bit)
@@ -17,7 +17,7 @@ CardWirthのシナリオディレクトリや圧縮ファイルからシナリ�
 Install-Module -Name CardWirthScenarioSummaryReader -Scope CurrentUser
 ```
 
-## 機能
+## 🌟 機能
 
 以下の３つのコマンドレットがあります。
 * **[Get-CardWirthScenario](#Get-CardWirthScenario)** コマンドレットによるシナリオ概要の取得
@@ -31,9 +31,13 @@ Install-Module -Name CardWirthScenarioSummaryReader -Scope CurrentUser
 
 ### 対応シナリオ形式
 以下のシナリオ形式に対応しています。
-* CardWirthのシナリオエディタで作成したシナリオ（クラシック形式）
-* CardWirthNextのシナリオエディタで作成したシナリオ（NEXT形式）
-* CardWirthPy Reboot のシナリオエディタで作成したシナリオ（WSN形式）
+* CardWirthのシナリオエディタ(CardWirthEditor、WirthBuilder)で作成したシナリオ
+  * クラシック形式(データバージョン～4)
+* CardWirthNextのシナリオエディタ(CardWirthNext版WirthBuilder)で作成したシナリオ
+  * NEXT形式(データバージョン7)
+  * > ※対象レベル下限値、上限値などの一部の情報は取得できません。シナリオ名、制作者、解説は取得できます。
+* CardWirthPy Reboot のシナリオエディタ(CWXEditor)で作成したシナリオ
+  * WSN形式、クラシック形式
 
 ### 対応シナリオ格納形式
 以下のシナリオ格納形式に対応しています。
@@ -47,9 +51,7 @@ Install-Module -Name CardWirthScenarioSummaryReader -Scope CurrentUser
 
 このため、Test-CardWirthScenarioコマンドレットについては厳密なシナリオの判定ではないことにご注意ください。
 
-
-
-## 各コマンドレットの簡単な説明
+## 📕 各コマンドレットの簡単な説明
 
 ### Get-CardWirthScenario
 指定したパスのシナリオ概要を取得します。
@@ -120,7 +122,7 @@ Test-CardWirthScenario ([-Path] <String[]> | -LiteralPath <String[]>)
 ```
 
 
-## 出力形式の説明
+## 📃 出力形式の説明
 
 * TypeName: BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.ScenarioSummary
 
@@ -141,12 +143,12 @@ Test-CardWirthScenario ([-Path] <String[]> | -LiteralPath <String[]>)
 |Level*|対象レベル|
 |PSPath*|シナリオ格納場所の絶対パス(FullNameと同じ)|
 
-## 想定される質問
+## ❓ 想定される質問
 
 ### 日本語が文字化けする
   * 日本語対応フォントを使用してください。
     * MS ゴシック
-    * RictyDiminished (https://github.com/edihbrandon/RictyDiminished)
+    * [RictyDiminished](https://github.com/edihbrandon/RictyDiminished)
 
 ### シナリオ概要が取得できない
   * パスに`[]`の文字が含まれている場合、-LiteralPathパラメーターを使わないと`[]`の文字がワイルドカードとして認識され、意図したシナリオが取得できなくなります。
@@ -169,15 +171,18 @@ lscw -Directory | % { Compress-Archive -LiteralPath $_.FullName -DestinationPath
 lscw | Group-Object -Property Level | % { $dir = mkdir $_.Name -Force; $_.Group | % { Move-Item -LiteralPath $_.FullName -Destination $dir.FullName } }
 ```
 
+## 制作者
+
+[@braveripple](https://github.com/braveripple)
+
 ## ライセンス
 
-CardWirthScenarioSummaryReaderは[MITライセンス](./LICENSE)です。
+[MITライセンス](./LICENSE)です。
 
-以下の自作ライブラリを使用しています。
-* CardWirthScenarioSummaryReaderTool
+## クレジット
 
-また、以下サードパーティ製のライブラリを使用しています。
-* SharpZipLib
-* MSFTCompressionCab
+以下のライブラリを使用しました。
 
-それぞれのライセンスについてはLICENSE.txtを参照してください。
+* CardWirthScenarioSummaryReaderTool(自作)
+* [icsharpcode/SharpZipLib](https://github.com/icsharpcode/SharpZipLib)
+* [MSFTCompressionCab](https://www.nuget.org/packages/MSFTCompressionCab)
