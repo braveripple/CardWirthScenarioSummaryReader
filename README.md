@@ -31,10 +31,13 @@ Install-Module -Name CardWirthScenarioSummaryReader -Scope CurrentUser
 
 ### 対応シナリオ形式
 以下のシナリオ形式に対応しています。
-* CardWirthのシナリオエディタ(CardWirthEditor)で作成したシナリオ（データバージョン～4、クラシック形式）
-* CardWirthNextのシナリオエディタ(WirthBuilder)で作成したシナリオ（データバージョン7、NEXT形式）
-  * ※対象レベル下限値、上限値などの一部の情報は取得できません。シナリオ名、制作者、解説は取得できます。
-* CardWirthPy Reboot のシナリオエディタ(CWXEditor)で作成したシナリオ（WSN形式、クラシック形式）
+* CardWirthのシナリオエディタ(CardWirthEditor、WirthBuilder)で作成したシナリオ
+  * クラシック形式(データバージョン～4)
+* CardWirthNextのシナリオエディタ(CardWirthNext版WirthBuilder)で作成したシナリオ
+  * NEXT形式(データバージョン7)
+  * > ※対象レベル下限値、上限値などの一部の情報は取得できません。シナリオ名、制作者、解説は取得できます。
+* CardWirthPy Reboot のシナリオエディタ(CWXEditor)で作成したシナリオ
+  * WSN形式、クラシック形式
 
 ### 対応シナリオ格納形式
 以下のシナリオ格納形式に対応しています。
