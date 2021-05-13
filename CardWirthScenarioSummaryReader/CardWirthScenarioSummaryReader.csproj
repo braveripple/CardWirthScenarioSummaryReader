@@ -28,31 +28,34 @@
   <ItemGroup>
     <None Include="..\Libs\MSFTCompressionCab\Microsoft.Deployment.Compression.dll">
       <Link>Microsoft.Deployment.Compression.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="..\Libs\MSFTCompressionCab\Microsoft.Deployment.Compression.Cab.dll">
       <Link>Microsoft.Deployment.Compression.Cab.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="..\Libs\SharpZipLib\ICSharpCode.SharpZipLib.dll">
       <Link>ICSharpCode.SharpZipLib.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <Reference Include="CardWirthScenarioSummaryReaderTool">
       <HintPath>..\Libs\CardWirthScenarioSummaryReaderTool\CardWirthScenarioSummaryReaderTool.dll</HintPath>
       <Private>true</Private>
     </Reference>
+    <None Update="CardWirthScenarioSummaryReader.dll-Help.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="CardWirthScenarioSummaryReader.format.ps1xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="CardWirthScenarioSummaryReader.psd1">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="CardWirthScenarioSummaryReader.psm1">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="CardWirthScenarioSummaryReader.types.ps1xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
