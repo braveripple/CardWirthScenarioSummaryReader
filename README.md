@@ -5,7 +5,7 @@ CardWirthのシナリオディレクトリや圧縮ファイルからシナリ�
 
 ![デモ](https://github.com/braveripple/CardWirthScenarioSummaryReader/blob/master/Assets/demo.gif?raw=true)
 
-## 動作環境
+## :computer:動作環境
 * Windows
   * Windows PowerShell 5.1 (32bit/64bit)
   * PowerShell Core (32bit/64bit)
@@ -17,7 +17,7 @@ CardWirthのシナリオディレクトリや圧縮ファイルからシナリ�
 Install-Module -Name CardWirthScenarioSummaryReader -Scope CurrentUser
 ```
 
-## 機能
+## :star2:機能
 
 以下の３つのコマンドレットがあります。
 * **[Get-CardWirthScenario](#Get-CardWirthScenario)** コマンドレットによるシナリオ概要の取得
@@ -48,9 +48,7 @@ Install-Module -Name CardWirthScenarioSummaryReader -Scope CurrentUser
 
 このため、Test-CardWirthScenarioコマンドレットについては厳密なシナリオの判定ではないことにご注意ください。
 
-
-
-## 各コマンドレットの簡単な説明
+## :closed_book:各コマンドレットの簡単な説明
 
 ### Get-CardWirthScenario
 指定したパスのシナリオ概要を取得します。
@@ -121,7 +119,7 @@ Test-CardWirthScenario ([-Path] <String[]> | -LiteralPath <String[]>)
 ```
 
 
-## 出力形式の説明
+## :page_facing_up:出力形式の説明
 
 * TypeName: BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.ScenarioSummary
 
@@ -142,12 +140,12 @@ Test-CardWirthScenario ([-Path] <String[]> | -LiteralPath <String[]>)
 |Level*|対象レベル|
 |PSPath*|シナリオ格納場所の絶対パス(FullNameと同じ)|
 
-## 想定される質問
+## :question:想定される質問
 
 ### 日本語が文字化けする
   * 日本語対応フォントを使用してください。
     * MS ゴシック
-    * RictyDiminished (https://github.com/edihbrandon/RictyDiminished)
+    * [RictyDiminished](https://github.com/edihbrandon/RictyDiminished)
 
 ### シナリオ概要が取得できない
   * パスに`[]`の文字が含まれている場合、-LiteralPathパラメーターを使わないと`[]`の文字がワイルドカードとして認識され、意図したシナリオが取得できなくなります。
@@ -176,15 +174,10 @@ lscw | Group-Object -Property Level | % { $dir = mkdir $_.Name -Force; $_.Group 
 
 ## ライセンス
 
-CardWirthScenarioSummaryReaderは[MITライセンス](./LICENSE)です。
+[MITライセンス](./LICENSE)です。
 
 ## クレジット
 
-以下の自作ライブラリを使用しています。
-* CardWirthScenarioSummaryReaderTool
-
-また、以下サードパーティ製のライブラリを使用しています。
-* SharpZipLib
-* MSFTCompressionCab
-
-それぞれのライセンスについてはLICENSE.txtを参照してください。
+* CardWirthScenarioSummaryReaderTool(自作)
+* [icsharpcode/SharpZipLib](https://github.com/icsharpcode/SharpZipLib)
+* [MSFTCompressionCab](https://www.nuget.org/packages/MSFTCompressionCab)
