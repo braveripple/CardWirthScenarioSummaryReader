@@ -46,7 +46,11 @@ Install-Module -Name CardWirthScenarioSummaryReader -Scope CurrentUser
 
 ### Get-CardWirthScenario
 指定したパスのシナリオ概要を取得します。
-* エイリアス：`gcw`
+
+#### エイリアス
+`gcw`
+
+#### 使用例
 ```powershell
 > Get-CardWirthScenario .\ゴブリンの洞窟\
 
@@ -61,8 +65,10 @@ Classic      Directory            1        3 ゴブリンの洞窟           齋
 
 パスを省略した場合は現在のディレクトリと現在のディレクトリ以下のシナリオ概要一覧を取得します。
 
-* エイリアス：`lscw`
+#### エイリアス
+`lscw`
 
+#### 使用例
 ```powershell
 > Get-CardWirthScenarioList
 
@@ -71,6 +77,34 @@ ScenarioType ContainerType LevelMin LevelMax Name                     Author    
 Classic      Directory            1        3 ゴブリンの洞窟           齋藤 洋              　町外れの洞窟にゴブリンと…
 Classic      Directory            0        0 交易都市リューン         斎藤 洋                冒険者よ、旅の準備は本当…
 ```
+
+#### 構文
+```powershell
+    Get-CardWirthScenarioList 
+        [-CabFile]
+        [-Classic]
+        [-Directory]
+        -LiteralPath <String[]>
+        [-Next]
+        [-Recurse]
+        [-Wsn]
+        [-WsnFile]
+        [-ZipFile]
+        [<CommonParameters>]
+
+    Get-CardWirthScenarioList
+       [[-Path] <String[]>]
+       [-CabFile]
+       [-Classic]
+       [-Directory]
+       [-Next]
+       [-Recurse]
+       [-Wsn]
+       [-WsnFile]
+       [-ZipFile]
+       [<CommonParameters>]
+```
+
 
 ### Test-CardWirthScenario
 
@@ -108,23 +142,23 @@ True
 
 ## 一歩踏み込んだ使い方
 
-例えば以下のワンライナーは現在のディレクトリにあるディレクトリに格納されたシナリオをZIP圧縮します。
+現在のディレクトリにあるディレクトリに格納されたシナリオをZIP圧縮するワンライナー
 ```powershell
 lscw -Directory | % { Compress-Archive -LiteralPath $_.FullName -DestinationPath ($_.FullName + ".zip") -Force }
 ```
-例えば以下のワンライナーは現在のディレクトリにあるシナリオを対象レベル別のディレクトリに分類します。
+
+現在のディレクトリにあるシナリオを対象レベル別のディレクトリに分類するワンライナー
 ```powershell
 lscw | Group-Object -Property Level | % { $dir = mkdir $_.Name -Force; $_.Group | % { Move-Item -LiteralPath $_.FullName -Destination $dir.FullName } }
 ```
-ワンライナーは便利ですが、初めて行う操作は *必ず* シナリオのバックアップを取ってください。
 
 ## 想定される質問
 
-* シナリオ概要が取得できない
+### シナリオ概要が取得できない
   * パスに`[]`の文字が含まれている場合、-LiteralPathパラメーターを使わないと`[]`の文字がワイルドカードとして認識され、意図したシナリオが取得できなくなります。
   * Get-CardWirthScenarioコマンドレットを使用してエラーメッセージを確認してください。主なシナリオ概要が取得できない原因は以下の通りです。
-    * 未対応のシナリオ格納形式だった。
-    * ディレクトリ、圧縮ファイルの中にSummary.wsm、Summary.xmlどちらも存在しなかった。
+    * 未対応のシナリオ格納形式だった。(ディレクトリ、.cab、.zip、.wsnファイル以外をパスに指定した）
+    * ディレクトリ、圧縮ファイルの中にSummary.wsm、Summary.xmlファイルがどちらも存在しなかった。
     * 圧縮ファイルがパスワード付きZIPで解析できなかった。
     * Summary.wsm、Summary.xmlの読み込みに失敗した。
 
