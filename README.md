@@ -5,7 +5,7 @@
 
 ![デモ](https://github.com/braveripple/CardWirthScenarioSummaryReader/blob/master/Assets/demo.gif?raw=true)
 
-## :computer:動作環境
+## 💻 動作環境
 * Windows
   * Windows PowerShell 5.1 (32bit/64bit)
   * PowerShell Core (32bit/64bit)
