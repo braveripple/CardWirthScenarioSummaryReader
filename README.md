@@ -31,9 +31,10 @@ Install-Module -Name CardWirthScenarioSummaryReader -Scope CurrentUser
 
 ### 対応シナリオ形式
 以下のシナリオ形式に対応しています。
-* CardWirthのシナリオエディタで作成したシナリオ（クラシック形式）
-* CardWirthNextのシナリオエディタで作成したシナリオ（NEXT形式）
-* CardWirthPy Reboot のシナリオエディタで作成したシナリオ（WSN形式）
+* CardWirthのシナリオエディタ(CardWirthEditor)で作成したシナリオ（クラシック形式）
+* CardWirthNextのシナリオエディタ(WirthBuilder)で作成したシナリオ（NEXT形式）
+  * （※対象レベル下限値、上限値などの一部の情報は取得できません。）
+* CardWirthPy Reboot のシナリオエディタ(CWXEditor)で作成したシナリオ（WSN形式、クラシック形式）
 
 ### 対応シナリオ格納形式
 以下のシナリオ格納形式に対応しています。
@@ -168,6 +169,10 @@ lscw -Directory | % { Compress-Archive -LiteralPath $_.FullName -DestinationPath
 ```powershell
 lscw | Group-Object -Property Level | % { $dir = mkdir $_.Name -Force; $_.Group | % { Move-Item -LiteralPath $_.FullName -Destination $dir.FullName } }
 ```
+
+## 制作者
+
+[@braveripple](https://github.com/braveripple)
 
 ## ライセンス
 
