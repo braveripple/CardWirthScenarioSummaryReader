@@ -9,11 +9,15 @@
     CompanyName = 'braveripple'
     Copyright = '(c) 2021 braveripple.'
 
-    NestedModules = @('CardWirthScenarioSummaryReader.dll', 'CardWirthScenarioSummaryReader.psm1')
+    NestedModules = @(
+        'CardWirthScenarioSummaryReader.dll',
+        'CardWirthScenarioSummaryReader.psm1'
+    )
     RequiredAssemblies = @(
         '.\CardWirthScenarioSummaryReaderTool.dll',
         '.\Microsoft.Deployment.Compression.dll',
-        '.\Microsoft.Deployment.Compression.Cab.dll'
+        '.\Microsoft.Deployment.Compression.Cab.dll',
+        '.\ICSharpCode.SharpZipLib.dll'
     )
     CmdletsToExport = @(
         'Get-CardWirthScenario',
