@@ -1,0 +1,822 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<helpItems schema="maml" xmlns="http://msh">
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-CardWirthScenario</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>CardWirthScenario</command:noun>
+      <maml:description>
+        <maml:para>指定したパスのシナリオ概要を取得します。</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>指定したパスのシナリオ概要を取得します。</maml:para>
+      <maml:para>基本的には１つのシナリオ概要を取得するためのコマンドレットですが、ワイルドカードを使用して複数のシナリオ概要を取得することができます。</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-CardWirthScenario</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="PSPath, LP">
+          <maml:name>LiteralPath</maml:name>
+          <maml:description>
+            <maml:para>シナリオのパスを指定します。LiteralPathの値は、入力されたとおりに使用されます。ワイルドカードとして解釈される文字はありません。</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-CardWirthScenario</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+          <maml:name>Path</maml:name>
+          <maml:description>
+            <maml:para>シナリオのパスを指定します。ワイルドカード文字を使用できます。このパラメーターは必須ですが、パラメーター名Pathは省略可能です。</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="PSPath, LP">
+        <maml:name>LiteralPath</maml:name>
+        <maml:description>
+          <maml:para>シナリオのパスを指定します。LiteralPathの値は、入力されたとおりに使用されます。ワイルドカードとして解釈される文字はありません。</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+        <maml:name>Path</maml:name>
+        <maml:description>
+          <maml:para>シナリオのパスを指定します。ワイルドカード文字を使用できます。このパラメーターは必須ですが、パラメーター名Pathは省略可能です。</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String[]</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.ScenarioSummary</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>---------------- Example 1:指定したパスのシナリオの概要を取得する ----------------</maml:title>
+        <dev:code>Get-CardWirthScenario .\ゴブリンの洞窟\
+
+ScenarioType ContainerType LevelMin LevelMax Name                     Author               Description
+------------ ------------- -------- -------- ----                     ------               -----------
+Classic      Directory            1        3 ゴブリンの洞窟           齋藤 洋              　町外れの洞窟にゴブリンと…</dev:code>
+        <dev:remarks>
+          <maml:para></maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>------------- Example 2:「者の」という文字が含まれるシナリオの概要を取得する -------------</maml:title>
+        <dev:code>Get-CardWirthScenario *者の*
+
+ScenarioType ContainerType LevelMin LevelMax Name                     Author               Description
+------------ ------------- -------- -------- ----                     ------               -----------
+Classic      Directory            1        3 見えざる者の願い         Kuranuki@groupAsk    数年前、カルバチアの街の近…
+Classic      Directory            3        5 賢者の選択               斎藤 洋              　如何なる時、如何なる場面…</dev:code>
+        <dev:remarks>
+          <maml:para></maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-CardWirthScenarioList</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>CardWirthScenarioList</command:noun>
+      <maml:description>
+        <maml:para>指定したパスと、パス以下のシナリオ概要を取得します。</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>指定したパスと、パス以下のシナリオ概要を取得します。</maml:para>
+      <maml:para>パスを省略した場合は現在のディレクトリと、現在のディレクトリ以下のシナリオ概要を取得します。</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-CardWirthScenarioList</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>CabFile</maml:name>
+          <maml:description>
+            <maml:para>CAB拡張子で圧縮されたシナリオ概要のみ出力します。</maml:para>
+            <maml:para>他のシナリオ格納形式のスイッチパラメーターとは併用できません。</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Classic</maml:name>
+          <maml:description>
+            <maml:para>クラッシック形式のシナリオ概要のみ出力します。</maml:para>
+            <maml:para>他のシナリオ形式のスイッチパラメーターとは併用できません。</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Directory</maml:name>
+          <maml:description>
+            <maml:para>ディレクトリに格納されたシナリオ概要のみ出力します。</maml:para>
+            <maml:para>他のシナリオ格納形式のスイッチパラメーターとは併用できません。</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="PSPath, LP">
+          <maml:name>LiteralPath</maml:name>
+          <maml:description>
+            <maml:para>シナリオのパスまたは、シナリオを含むディレクトリのパスを指定します。LiteralPathの値は、入力されたとおりに使用されます。ワイルドカードとして解釈される文字はありません。</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Next</maml:name>
+          <maml:description>
+            <maml:para>NEXT形式のシナリオ概要のみ出力します。</maml:para>
+            <maml:para>他のシナリオ形式のスイッチパラメーターとは併用できません。</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="s">
+          <maml:name>Recurse</maml:name>
+          <maml:description>
+            <maml:para>指定したディレクトリのサブディレクトリ以下のシナリオを取得します。</maml:para>
+            <maml:para>このパラメーターはシナリオのパスにディレクトリを指定したときのみ機能します。</maml:para>
+            <maml:para>サブディレクトリの階層指定はできません。</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Py">
+          <maml:name>Wsn</maml:name>
+          <maml:description>
+            <maml:para>WSN形式のシナリオ概要のみ出力します。</maml:para>
+            <maml:para>他のシナリオ形式のスイッチパラメーターとは併用できません。</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>WsnFile</maml:name>
+          <maml:description>
+            <maml:para>WSN拡張子で圧縮されたシナリオ概要のみ出力します。</maml:para>
+            <maml:para>他のシナリオ格納形式のスイッチパラメーターとは併用できません。</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ZipFile</maml:name>
+          <maml:description>
+            <maml:para>ZIP拡張子で圧縮されたシナリオ概要のみ出力します。</maml:para>
+            <maml:para>他のシナリオ格納形式のスイッチパラメーターとは併用できません。</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-CardWirthScenarioList</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+          <maml:name>Path</maml:name>
+          <maml:description>
+            <maml:para>シナリオのパスまたは、シナリオを含むディレクトリのパスを指定します。ワイルドカード文字を使用できます。このパラメーターを省略した場合、現在のディレクトリ(`.`)が指定されます。</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>CabFile</maml:name>
+          <maml:description>
+            <maml:para>CAB拡張子で圧縮されたシナリオ概要のみ出力します。</maml:para>
+            <maml:para>他のシナリオ格納形式のスイッチパラメーターとは併用できません。</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Classic</maml:name>
+          <maml:description>
+            <maml:para>クラッシック形式のシナリオ概要のみ出力します。</maml:para>
+            <maml:para>他のシナリオ形式のスイッチパラメーターとは併用できません。</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Directory</maml:name>
+          <maml:description>
+            <maml:para>ディレクトリに格納されたシナリオ概要のみ出力します。</maml:para>
+            <maml:para>他のシナリオ格納形式のスイッチパラメーターとは併用できません。</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Next</maml:name>
+          <maml:description>
+            <maml:para>NEXT形式のシナリオ概要のみ出力します。</maml:para>
+            <maml:para>他のシナリオ形式のスイッチパラメーターとは併用できません。</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="s">
+          <maml:name>Recurse</maml:name>
+          <maml:description>
+            <maml:para>指定したディレクトリのサブディレクトリ以下のシナリオを取得します。</maml:para>
+            <maml:para>このパラメーターはシナリオのパスにディレクトリを指定したときのみ機能します。</maml:para>
+            <maml:para>サブディレクトリの階層指定はできません。</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Py">
+          <maml:name>Wsn</maml:name>
+          <maml:description>
+            <maml:para>WSN形式のシナリオ概要のみ出力します。</maml:para>
+            <maml:para>他のシナリオ形式のスイッチパラメーターとは併用できません。</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>WsnFile</maml:name>
+          <maml:description>
+            <maml:para>WSN拡張子で圧縮されたシナリオ概要のみ出力します。</maml:para>
+            <maml:para>他のシナリオ格納形式のスイッチパラメーターとは併用できません。</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ZipFile</maml:name>
+          <maml:description>
+            <maml:para>ZIP拡張子で圧縮されたシナリオ概要のみ出力します。</maml:para>
+            <maml:para>他のシナリオ格納形式のスイッチパラメーターとは併用できません。</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>CabFile</maml:name>
+        <maml:description>
+          <maml:para>CAB拡張子で圧縮されたシナリオ概要のみ出力します。</maml:para>
+          <maml:para>他のシナリオ格納形式のスイッチパラメーターとは併用できません。</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Classic</maml:name>
+        <maml:description>
+          <maml:para>クラッシック形式のシナリオ概要のみ出力します。</maml:para>
+          <maml:para>他のシナリオ形式のスイッチパラメーターとは併用できません。</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Directory</maml:name>
+        <maml:description>
+          <maml:para>ディレクトリに格納されたシナリオ概要のみ出力します。</maml:para>
+          <maml:para>他のシナリオ格納形式のスイッチパラメーターとは併用できません。</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="PSPath, LP">
+        <maml:name>LiteralPath</maml:name>
+        <maml:description>
+          <maml:para>シナリオのパスまたは、シナリオを含むディレクトリのパスを指定します。LiteralPathの値は、入力されたとおりに使用されます。ワイルドカードとして解釈される文字はありません。</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Next</maml:name>
+        <maml:description>
+          <maml:para>NEXT形式のシナリオ概要のみ出力します。</maml:para>
+          <maml:para>他のシナリオ形式のスイッチパラメーターとは併用できません。</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+        <maml:name>Path</maml:name>
+        <maml:description>
+          <maml:para>シナリオのパスまたは、シナリオを含むディレクトリのパスを指定します。ワイルドカード文字を使用できます。このパラメーターを省略した場合、現在のディレクトリ(`.`)が指定されます。</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="s">
+        <maml:name>Recurse</maml:name>
+        <maml:description>
+          <maml:para>指定したディレクトリのサブディレクトリ以下のシナリオを取得します。</maml:para>
+          <maml:para>このパラメーターはシナリオのパスにディレクトリを指定したときのみ機能します。</maml:para>
+          <maml:para>サブディレクトリの階層指定はできません。</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Py">
+        <maml:name>Wsn</maml:name>
+        <maml:description>
+          <maml:para>WSN形式のシナリオ概要のみ出力します。</maml:para>
+          <maml:para>他のシナリオ形式のスイッチパラメーターとは併用できません。</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>WsnFile</maml:name>
+        <maml:description>
+          <maml:para>WSN拡張子で圧縮されたシナリオ概要のみ出力します。</maml:para>
+          <maml:para>他のシナリオ格納形式のスイッチパラメーターとは併用できません。</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>ZipFile</maml:name>
+        <maml:description>
+          <maml:para>ZIP拡張子で圧縮されたシナリオ概要のみ出力します。</maml:para>
+          <maml:para>他のシナリオ格納形式のスイッチパラメーターとは併用できません。</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String[]</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.ScenarioSummary</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>--------------- Example 1:現在のディレクトリのシナリオの概要を取得する ---------------</maml:title>
+        <dev:code>Get-CardWirthScenarioList
+
+ScenarioType ContainerType LevelMin LevelMax Name                     Author               Description
+------------ ------------- -------- -------- ----                     ------               -----------
+Classic      Directory            1        3 ゴブリンの洞窟           齋藤 洋              　町外れの洞窟にゴブリンと…
+Classic      Directory            0        0 交易都市リューン         斎藤 洋                冒険者よ、旅の準備は本当…</dev:code>
+        <dev:remarks>
+          <maml:para>現在のディレクトリに「ゴブリンの洞窟」と「交易都市リューン」がある場合、上記のように出力されます。</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------- Example 2:指定したディレクトリのシナリオの概要を取得する --------------</maml:title>
+        <dev:code>Get-CardWirthScenarioList .\Ask\
+
+ScenarioType ContainerType LevelMin LevelMax Name                     Author               Description
+------------ ------------- -------- -------- ----                     ------               -----------
+Classic      Directory            1        3 ゴブリンの洞窟           齋藤 洋              　町外れの洞窟にゴブリンと…
+Classic      Directory            0        0 交易都市リューン         斎藤 洋                冒険者よ、旅の準備は本当…</dev:code>
+        <dev:remarks>
+          <maml:para>「Ask」ディレクトリに「ゴブリンの洞窟」と「交易都市リューン」がある場合、上記のように出力されます。</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>---------------- Example 3:指定したパスのシナリオの概要を取得する ----------------</maml:title>
+        <dev:code>Get-CardWirthScenarioList .\ゴブリンの洞窟\
+
+ScenarioType ContainerType LevelMin LevelMax Name                     Author               Description
+------------ ------------- -------- -------- ----                     ------               -----------
+Classic      Directory            1        3 ゴブリンの洞窟           齋藤 洋              　町外れの洞窟にゴブリンと…</dev:code>
+        <dev:remarks>
+          <maml:para>`Get-CardWirthScenario .\ゴブリンの洞窟`とほぼ同じですが、「.\ゴブリンの洞窟\」ディレクトリ以下にシナリオが存在する場合はそのシナリオ概要が一緒に出力されます。</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>---------- Example 4:現在のディレクトリのサブディレクトリ以下のシナリオ概要を取得する ----------</maml:title>
+        <dev:code>Get-CardWirthScenarioList -Recurse
+
+ScenarioType ContainerType LevelMin LevelMax Name                     Author               Description
+------------ ------------- -------- -------- ----                     ------               -----------
+Classic      Directory            1        3 ゴブリンの洞窟           齋藤 洋              　町外れの洞窟にゴブリンと…
+Classic      Directory            0        0 交易都市リューン         斎藤 洋                冒険者よ、旅の準備は本当…</dev:code>
+        <dev:remarks>
+          <maml:para>現在のディレクトリにシナリオがなく、サブディレクトリ以下に「ゴブリンの洞窟」と「交易都市リューン」がある場合、上記のように出力されます。</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Test-CardWirthScenario</command:name>
+      <command:verb>Test</command:verb>
+      <command:noun>CardWirthScenario</command:noun>
+      <maml:description>
+        <maml:para>指定したパスがCardWirthのシナリオかどうかを判定します。</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>指定したパスがCardWirthのシナリオかどうかを判定します。</maml:para>
+      <maml:para>シナリオであり、かつ、指定条件にあてはまる場合はTrueが返ります。</maml:para>
+      <maml:para>以下の場合はすべてFalseが返ります。 * シナリオが見つからない、Summaryファイルが見つからない、Summaryファイルの読み込みに失敗したなどの例外が発生したとき</maml:para>
+      <maml:para>* パラメーターに指定したシナリオ形式やシナリオ格納形式に一致しなかったとき</maml:para>
+      <maml:para></maml:para>
+      <maml:para>このコマンドレットはスクリプトで使うことを想定しているため、エイリアスはありません。</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Test-CardWirthScenario</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>ContainerType</maml:name>
+          <maml:description>
+            <maml:para>{{ Fill ContainerType Description }}</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">Any</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Directory</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">CabFile</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ZipFile</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">WsnFile</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">ContainerParameterType</command:parameterValue>
+          <dev:type>
+            <maml:name>ContainerParameterType</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="PSPath, LP">
+          <maml:name>LiteralPath</maml:name>
+          <maml:description>
+            <maml:para>シナリオのパスを指定します。LiteralPathの値は、入力されたとおりに使用されます。ワイルドカードとして解釈される文字はありません。</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>ScenarioType</maml:name>
+          <maml:description>
+            <maml:para>{{ Fill ScenarioType Description }}</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">Any</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Classic</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Next</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Wsn</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">ScenarioParameterType</command:parameterValue>
+          <dev:type>
+            <maml:name>ScenarioParameterType</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Test-CardWirthScenario</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+          <maml:name>Path</maml:name>
+          <maml:description>
+            <maml:para>シナリオのパスを指定します。ワイルドカード文字を使用できます。このパラメーターは必須ですが、パラメーター名Pathは省略可能です。</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>ContainerType</maml:name>
+          <maml:description>
+            <maml:para>{{ Fill ContainerType Description }}</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">Any</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Directory</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">CabFile</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ZipFile</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">WsnFile</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">ContainerParameterType</command:parameterValue>
+          <dev:type>
+            <maml:name>ContainerParameterType</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>ScenarioType</maml:name>
+          <maml:description>
+            <maml:para>{{ Fill ScenarioType Description }}</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">Any</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Classic</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Next</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Wsn</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">ScenarioParameterType</command:parameterValue>
+          <dev:type>
+            <maml:name>ScenarioParameterType</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>ContainerType</maml:name>
+        <maml:description>
+          <maml:para>{{ Fill ContainerType Description }}</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">ContainerParameterType</command:parameterValue>
+        <dev:type>
+          <maml:name>ContainerParameterType</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="PSPath, LP">
+        <maml:name>LiteralPath</maml:name>
+        <maml:description>
+          <maml:para>シナリオのパスを指定します。LiteralPathの値は、入力されたとおりに使用されます。ワイルドカードとして解釈される文字はありません。</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+        <maml:name>Path</maml:name>
+        <maml:description>
+          <maml:para>シナリオのパスを指定します。ワイルドカード文字を使用できます。このパラメーターは必須ですが、パラメーター名Pathは省略可能です。</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>ScenarioType</maml:name>
+        <maml:description>
+          <maml:para>{{ Fill ScenarioType Description }}</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">ScenarioParameterType</command:parameterValue>
+        <dev:type>
+          <maml:name>ScenarioParameterType</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String[]</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ScenarioParameterType</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>BraveRipple.CardWirthScenarioSummaryReaderTool.Enums.ContainerParameterType</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Boolean</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>---------------- Example 1:指定したパスがシナリオかどうか判定する ----------------</maml:title>
+        <dev:code>Test-CardWirthScenario .\ゴブリンの洞窟\
+True</dev:code>
+        <dev:remarks>
+          <maml:para></maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>------------ Example 2:指定したパスがクラシック形式のシナリオかどうか判定する ------------</maml:title>
+        <dev:code>Test-CardWirthScenario .\ゴブリンの洞窟\ -ScenarioType Classic
+True</dev:code>
+        <dev:remarks>
+          <maml:para></maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>--------- Example 3:指定したパスがディレクトリに格納されているシナリオかどうか判定する ---------</maml:title>
+        <dev:code>Test-CardWirthScenario .\ゴブリンの洞窟\ -ContainerType Directory
+True</dev:code>
+        <dev:remarks>
+          <maml:para></maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>---- Example 4:指定したパスがクラシック形式かつ、ディレクトリに格納されているシナリオかどうか判定する ----</maml:title>
+        <dev:code>Test-CardWirthScenario .\ゴブリンの洞窟\ -ScenarioType Classic -ContainerType Directory
+True</dev:code>
+        <dev:remarks>
+          <maml:para></maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+</helpItems>
