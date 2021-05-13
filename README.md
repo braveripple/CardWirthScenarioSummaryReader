@@ -1,10 +1,6 @@
 # CardWirthScenarioSummaryReader(CWSSR)
 CardWirthのシナリオディレクトリや圧縮ファイルからシナリオ概要を取得するPowerShellモジュール
 
-
-ここは本文です[^anchor]
-
-
 ***デモ***
 
 ![デモ](https://github.com/braveripple/CardWirthScenarioSummaryReader/blob/master/Assets/demo.gif?raw=true)
@@ -53,7 +49,7 @@ CardWirthのシナリオディレクトリや圧縮ファイルからシナリ�
 
 ## インストール方法
 
-PowerShell Galleryで公開する予定
+[PowerShell Gallery](https://www.powershellgallery.com/packages/CardWirthScenarioSummaryReader/)で公開する予定
 ```powershell
 Install-Module -Name CardWirthScenarioSummaryReader -Scope CurrentUser
 ```
@@ -180,8 +176,5 @@ lscw | Group-Object -Property Level | % { $dir = mkdir $_.Name -Force; $_.Group 
 
 ## ライセンス
 
-MITライセンスです。
+[MITライセンス](./LICENSE)です。
 
-
-
-[^anchor]: 脚注の本文。本文に設置したアンカーと同じ文字列段落をには改行を入れないでください。
