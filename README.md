@@ -19,14 +19,10 @@ Install-Module -Name CardWirthScenarioSummaryReader -Scope CurrentUser
 
 ## 機能
 
-## Table of content
-- [Usage](#対応シナリオ形式)
-
-
 以下の３つのコマンドレットがあります。
 * **[Get-CardWirthScenario](#Get-CardWirthScenario)** コマンドレットによるシナリオ概要の取得
-* **Get-CardWirthScenarioList** コマンドレットによるシナリオ概要一覧の取得
-* **Test-CardWirthScenario** コマンドレットによるシナリオの判定
+* **[Get-CardWirthScenarioList](#Get-CardWirthScenarioList)** コマンドレットによるシナリオ概要一覧の取得
+* **[Test-CardWirthScenario](#Test-CardWirthScenario)** コマンドレットによるシナリオの判定
 
 また、PowerShellのコマンドレットと組み合わせることで以下のことが行えます。
 * シナリオ概要の閲覧、検索、集計、グルーピング
