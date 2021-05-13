@@ -10,12 +10,12 @@ CardWirthのシナリオディレクトリや圧縮ファイルからシナリ�
   * Windows PowerShell 5.1 (32bit/64bit)
   * PowerShell Core (32bit/64bit)
 
-### 使用ライブラリ
+## インストール方法
 
-* ZIPファイルの解析にSharpZipLibを使用しています。
-* CABファイルの解析にMSFTCompressionCabを使用しています。
-
-それぞれのライセンスについてはLICENSE.txtを参照してください。
+[PowerShell Gallery](https://www.powershellgallery.com/packages/CardWirthScenarioSummaryReader/)で公開する予定
+```powershell
+Install-Module -Name CardWirthScenarioSummaryReader -Scope CurrentUser
+```
 
 ## 機能
 
@@ -29,30 +29,25 @@ CardWirthのシナリオディレクトリや圧縮ファイルからシナリ�
 * シナリオのコピー、移動、圧縮、解凍
 * etc
 
-## 対応シナリオ形式
+### 対応シナリオ形式
 以下のシナリオ形式に対応しています。
 * CardWirthのシナリオエディタで作成したシナリオ（クラシック形式）
 * CardWirthNextのシナリオエディタで作成したシナリオ（NEXT形式）
 * CardWirthPy Reboot のシナリオエディタで作成したシナリオ（WSN形式）
 
-## 対応シナリオ格納形式
+### 対応シナリオ格納形式
 以下のシナリオ格納形式に対応しています。
 * ディレクトリに格納されたシナリオ
 * CAB拡張子で圧縮されたシナリオ
 * ZIP拡張子で圧縮されたシナリオ
 * WSN拡張子で圧縮されたシナリオ
 
-## シナリオ概要取得・判定方法
+### シナリオ概要取得・判定方法
 ディレクトリや圧縮ファイルの中にあるSummary.wsmファイル、Summary.xmlファイルを解析してシナリオ概要を取得、およびシナリオかどうかを判定しています。
 
 このため、Test-CardWirthScenarioコマンドレットについては厳密なシナリオの判定ではないことにご注意ください。
 
-## インストール方法
 
-[PowerShell Gallery](https://www.powershellgallery.com/packages/CardWirthScenarioSummaryReader/)で公開する予定
-```powershell
-Install-Module -Name CardWirthScenarioSummaryReader -Scope CurrentUser
-```
 
 ## 各コマンドレットの簡単な説明
 
@@ -112,7 +107,7 @@ Get-CardWirthScenarioList ([[-Path] <String[]>] | -LiteralPath <String[]>)
 
 #### 使用例
 ```powershell
-Test-CardWirthScenario ゴブリンの洞窟
+Test-CardWirthScenario .\ゴブリンの洞窟\
 True
 ```
 
@@ -176,5 +171,13 @@ lscw | Group-Object -Property Level | % { $dir = mkdir $_.Name -Force; $_.Group 
 
 ## ライセンス
 
-[MITライセンス](./LICENSE)です。
+CardWirthScenarioSummaryReaderは[MITライセンス](./LICENSE)です。
 
+以下の自作ライブラリを使用しています。
+* CardWirthScenarioSummaryReaderTool
+
+また、以下サードパーティ製のライブラリを使用しています。
+* SharpZipLib
+* MSFTCompressionCab
+
+それぞれのライセンスについてはLICENSE.txtを参照してください。
