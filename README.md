@@ -59,6 +59,11 @@ ScenarioType ContainerType LevelMin LevelMax Name                     Author    
 Classic      Directory            1        3 ゴブリンの洞窟           齋藤 洋              　町外れの洞窟にゴブリンと…
 ```
 
+#### 構文
+```powershell
+Get-CardWirthScenario ([-Path] <String[]> | -LiteralPath <String[]>) [<CommonParameters>]
+```
+
 ### Get-CardWirthScenarioList
 
 指定したパスとパス以下のシナリオ概要一覧を取得します。
@@ -80,31 +85,10 @@ Classic      Directory            0        0 交易都市リューン         �
 
 #### 構文
 ```powershell
-    Get-CardWirthScenarioList 
-        [-CabFile]
-        [-Classic]
-        [-Directory]
-        -LiteralPath <String[]>
-        [-Next]
-        [-Recurse]
-        [-Wsn]
-        [-WsnFile]
-        [-ZipFile]
-        [<CommonParameters>]
-
-    Get-CardWirthScenarioList
-       [[-Path] <String[]>]
-       [-CabFile]
-       [-Classic]
-       [-Directory]
-       [-Next]
-       [-Recurse]
-       [-Wsn]
-       [-WsnFile]
-       [-ZipFile]
-       [<CommonParameters>]
+Get-CardWirthScenarioList ([[-Path] <String[]>] | -LiteralPath <String[]>)
+    [-CabFile] [-Classic] [-Directory] [-Next] [-Recurse] [-Wsn] [-WsnFile] [-ZipFile]
+    [<CommonParameters>]
 ```
-
 
 ### Test-CardWirthScenario
 
@@ -114,10 +98,20 @@ Classic      Directory            0        0 交易都市リューン         �
 
 このコマンドレットはスクリプトで使うことを想定しているため、エイリアスはありません。
 
+#### 使用例
 ```powershell
 Test-CardWirthScenario ゴブリンの洞窟
 True
 ```
+
+#### 構文
+```powershell
+Test-CardWirthScenario ([-Path] <String[]> | -LiteralPath <String[]>)
+    [-ContainerType {Any | Directory | CabFile | ZipFile | WsnFile}] 
+    [-ScenarioType {Any | Classic | Next | Wsn}]
+    [<CommonParameters>]
+```
+
 
 ## 出力形式の説明
 
