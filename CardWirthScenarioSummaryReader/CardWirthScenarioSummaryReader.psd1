@@ -1,7 +1,7 @@
 @{
 
     ModuleVersion = '1.0.0'
-    Description = 'Get CardWirth scenario information from the Summary file in a directory or archive file.'
+    Description = 'This is an unofficial tool to get CardWirth scenario information from the Summary file in a directory or archive file.'
     PowerShellVersion = '5.1'
     GUID = '5567929f-9a31-4aba-973d-d1aaf762f11b'
     
