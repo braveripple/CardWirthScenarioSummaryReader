@@ -180,7 +180,7 @@ lscw | Group-Object -Property Level | % { $dir = mkdir $_.Name -Force; $_.Group 
 
 [MITライセンス](./LICENSE)です。
 
-## クレジット
+## 使用ライブラリについて
 
 以下のライブラリを使用しました。
 
