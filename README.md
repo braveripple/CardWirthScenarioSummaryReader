@@ -140,9 +140,9 @@ Test-CardWirthScenario ([-Path] <String[]> | -LiteralPath <String[]>)
 |Description|解説|
 |SummaryInfo|Summaryファイルの情報|
 |LastWriteTime|シナリオ格納場所(ディレクトリ、圧縮ファイル)の更新日時|
-|FullName|シナリオ格納場所(ディレクトリ、圧縮ファイル)の絶対パス|
+|FullName|シナリオ格納場所の絶対パス|
 |Level*|対象レベル|
-|PSPath*|シナリオ格納場所(ディレクトリ、圧縮ファイル)の絶対パス(FullNameと同じ)|
+|PSPath*|シナリオ格納場所の絶対パス(FullNameと同じ)|
 
 ## ❓ 想定される質問
 
