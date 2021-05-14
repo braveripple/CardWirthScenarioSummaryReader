@@ -50,7 +50,7 @@ Install-Module -Name CardWirthScenarioSummaryReader -Scope CurrentUser
 ディレクトリや圧縮ファイルの中にあるSummary.wsmファイル、Summary.xmlファイルを解析してシナリオ概要を取得、およびシナリオかどうかを判定しています。
 
 このため、Test-CardWirthScenarioコマンドレットについては厳密なシナリオの判定ではないことにご注意ください。
-> Summary.wsmファイル、Summary.xmlファイルだけが存在するディレクトリ、圧縮ファイルもシナリオと判断されるため
+  * > Summary.wsmファイル、Summary.xmlファイルだけが存在するディレクトリ、圧縮ファイルもシナリオと判断されるため
 
 ## 📕 各コマンドレットの簡単な説明
 
