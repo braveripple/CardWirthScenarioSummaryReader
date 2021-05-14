@@ -5,6 +5,10 @@
 
 ![デモ](https://github.com/braveripple/CardWirthScenarioSummaryReader/blob/master/Assets/demo.gif?raw=true)
 
+## ⚠️注意
+
+CardWirthScenarioSummaryReaderはCardWirth非公式のツールです。
+
 ## 💻 動作環境
 * Windows
   * Windows PowerShell 5.1 (32bit/64bit)
