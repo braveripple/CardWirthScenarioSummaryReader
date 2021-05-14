@@ -44,6 +44,7 @@ Install-Module -Name CardWirthScenarioSummaryReader -Scope CurrentUser
 * ディレクトリに格納されたシナリオ
 * CAB拡張子で圧縮されたシナリオ
 * ZIP拡張子で圧縮されたシナリオ
+  * > ※パスワード付きzipファイルには対応していません。
 * WSN拡張子で圧縮されたシナリオ
 
 ### シナリオ概要取得・判定方法
@@ -171,6 +172,13 @@ lscw -Directory | % { Compress-Archive -LiteralPath $_.FullName -DestinationPath
 ```powershell
 lscw | Group-Object -Property Level | % { $dir = mkdir $_.Name -Force; $_.Group | % { Move-Item -LiteralPath $_.FullName -Destination $dir.FullName } }
 ```
+
+現在のディレクトリ以下にあるシナリオを現在のディレクトリに持ってくるワンライナー
+```powershell
+lscw -Recurse | Move-Item
+```
+> * もし、同じ名前のディレクトリや圧縮ファイルが異なるディレクトリに別々に存在する場合でも、Move-Itemに-Forceオプションをつけない限りは上書きされることはありません。
+
 
 ## 制作者
 
