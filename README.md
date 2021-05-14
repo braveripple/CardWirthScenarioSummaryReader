@@ -25,7 +25,7 @@ Install-Module -Name CardWirthScenarioSummaryReader -Scope CurrentUser
 * **[Test-CardWirthScenario](#Test-CardWirthScenario)** コマンドレットによるシナリオの判定
 
 また、PowerShellのコマンドレットと組み合わせることで以下のことが行えます。
-* シナリオ概要の閲覧、検索、集計、グルーピング
+* シナリオ概要の閲覧(Out-GridView)、検索(Where-Object)、集計(Measure-Object)、グルーピング(Group-Object)
 * シナリオのコピー、移動、圧縮、解凍
 * etc
 
