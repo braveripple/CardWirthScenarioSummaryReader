@@ -7,7 +7,7 @@
 
 ## ⚠️注意
 
-CardWirthScenarioSummaryReaderはCardWirth非公式のツールです。
+CardWirthScenarioSummaryReader(以下、CWSSR)はCardWirth非公式のツールです。
 
 ## 💻 動作環境
 * Windows
