@@ -37,6 +37,8 @@ Install-Module -Name CardWirthScenarioSummaryReader -Scope CurrentUser
 * シナリオのコピー、移動、圧縮、解凍
 * etc
 
+詳しくは[一歩踏み込んだ使い方](#-一歩踏み込んだ使い方)を参照してください。
+
 ### 対応シナリオ形式
 以下のシナリオ形式に対応しています。
 * [CardWirth](https://cardwirth.net/)のシナリオエディタ(CardWirthEditor、WirthBuilder)で作成したシナリオ
@@ -50,10 +52,10 @@ Install-Module -Name CardWirthScenarioSummaryReader -Scope CurrentUser
 ### 対応シナリオ格納形式
 以下のシナリオ格納形式に対応しています。
 * ディレクトリに格納されたシナリオ
-* CAB拡張子で圧縮されたシナリオ
-* ZIP拡張子で圧縮されたシナリオ
+* .cab拡張子で圧縮されたシナリオ
+* .zip拡張子で圧縮されたシナリオ
   * > ※パスワード付きzipファイルには対応していません。
-* WSN拡張子で圧縮されたシナリオ
+* .wsn拡張子で圧縮されたシナリオ
 
 ### シナリオ概要取得・判定方法
 ディレクトリや圧縮ファイルの中にあるSummary.wsmファイル、Summary.xmlファイルを解析してシナリオ概要を取得、およびシナリオかどうかを判定しています。
@@ -152,13 +154,13 @@ Test-CardWirthScenario ([-Path] <String[]> | -LiteralPath <String[]>)
 |Level *|対象レベル|
 |PSPath *|シナリオ格納場所の絶対パス(FullNameと同じ)|
 
-## 🍀一歩踏み込んだ使い方
+## 🍀 一歩踏み込んだ使い方
 
 CWSSRのコマンドレットとPowerShellのコマンドレットを組み合わせることで色々できます。
 
 以下はその一例です。
 
-* 現在のディレクトリからゴブ洞改変シナリオらしきものを探すワンライナー
+* 現在のディレクトリからゴブ洞改変シナリオらしきものを探すワンライナー(1行プログラム)
 > `?`は`Where-Object`のエイリアスです。
 ```powershell
 lscw | ? { $_.Name -like "*洞*" -or $_.Description -like "*ゴブ洞改変*" }
