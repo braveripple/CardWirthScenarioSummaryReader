@@ -113,7 +113,7 @@ Get-CardWirthScenarioList ([[-Path] <String[]>] | -LiteralPath <String[]>)
 
 指定したパスがCardWirthのシナリオかどうかを判定します。
 
-シナリオであり、かつ、指定条件にあてはまる場合はTrueが返ります。それ以外の場合はFalseが返ります。
+シナリオであり、かつ、指定条件にあてはまる場合は`True`が返ります。それ以外の場合は`False`が返ります。
 
 このコマンドレットはスクリプトで使うことを想定しているため、エイリアスはありません。
 
@@ -149,12 +149,12 @@ Test-CardWirthScenario ([-Path] <String[]> | -LiteralPath <String[]>)
 |SummaryInfo|Summaryファイルの情報|
 |LastWriteTime|シナリオ格納場所(ディレクトリ、圧縮ファイル)の更新日時|
 |FullName|シナリオ格納場所の絶対パス|
-|Level*|対象レベル|
-|PSPath*|シナリオ格納場所の絶対パス(FullNameと同じ)|
+|Level *|対象レベル|
+|PSPath *|シナリオ格納場所の絶対パス(FullNameと同じ)|
 
 ## 🍀一歩踏み込んだ使い方
 
-CWSSRのコマンドレットとPowerShellの既存のコマンドレットを組み合わせることで色々できます。
+CWSSRのコマンドレットとPowerShellのコマンドレットを組み合わせることで色々できます。
 
 以下はその一例です。
 
