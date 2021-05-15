@@ -30,8 +30,11 @@ Test-CardWirthScenario -LiteralPath <String[]> [-ScenarioType <ScenarioParameter
 シナリオであり、かつ、指定条件にあてはまる場合はTrueが返ります。
 
 以下の場合はすべてFalseが返ります。
+
 * シナリオが見つからない、Summaryファイルが見つからない、Summaryファイルの読み込みに失敗したなどの例外が発生したとき
+
 * パラメーターに指定したシナリオ形式やシナリオ格納形式に一致しなかったとき
+
 
 このコマンドレットはスクリプトで使うことを想定しているため、エイリアスはありません。
 
@@ -64,7 +67,17 @@ True
 ## PARAMETERS
 
 ### -ContainerType
-{{ Fill ContainerType Description }}
+シナリオ格納形式を指定します。
+
+-Any シナリオ格納形式を考慮しません。
+
+-Directory ディレクトリに格納されたシナリオかどうかを判定します。
+
+-CabFile .cab拡張子で圧縮されたシナリオかどうかを判定します。
+
+-ZipFile .zip拡張子で圧縮されたシナリオかどうかを判定します。
+
+-WsnFile .wsn拡張子で圧縮されたシナリオかどうかを判定します。
 
 ```yaml
 Type: ContainerParameterType
@@ -110,7 +123,15 @@ Accept wildcard characters: False
 ```
 
 ### -ScenarioType
-{{ Fill ScenarioType Description }}
+シナリオ形式を指定します。
+
+-Any シナリオ形式を考慮しません。
+
+-Classic クラシック形式のシナリオかどうかを判定します。
+
+-Next NEXT形式のシナリオかどうかを判定します。
+
+-Wsn WSN形式のシナリオかどうかを判定します。
 
 ```yaml
 Type: ScenarioParameterType

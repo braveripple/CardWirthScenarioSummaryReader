@@ -581,7 +581,8 @@ Classic      Directory            0        0 交易都市リューン         �
     <maml:description>
       <maml:para>指定したパスがCardWirthのシナリオかどうかを判定します。</maml:para>
       <maml:para>シナリオであり、かつ、指定条件にあてはまる場合はTrueが返ります。</maml:para>
-      <maml:para>以下の場合はすべてFalseが返ります。 * シナリオが見つからない、Summaryファイルが見つからない、Summaryファイルの読み込みに失敗したなどの例外が発生したとき</maml:para>
+      <maml:para>以下の場合はすべてFalseが返ります。</maml:para>
+      <maml:para>* シナリオが見つからない、Summaryファイルが見つからない、Summaryファイルの読み込みに失敗したなどの例外が発生したとき</maml:para>
       <maml:para>* パラメーターに指定したシナリオ形式やシナリオ格納形式に一致しなかったとき</maml:para>
       <maml:para></maml:para>
       <maml:para>このコマンドレットはスクリプトで使うことを想定しているため、エイリアスはありません。</maml:para>
@@ -592,7 +593,12 @@ Classic      Directory            0        0 交易都市リューン         �
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
           <maml:name>ContainerType</maml:name>
           <maml:description>
-            <maml:para>{{ Fill ContainerType Description }}</maml:para>
+            <maml:para>シナリオ格納形式を指定します。</maml:para>
+            <maml:para>-Any シナリオ格納形式を考慮しません。</maml:para>
+            <maml:para>-Directory ディレクトリに格納されたシナリオかどうかを判定します。</maml:para>
+            <maml:para>-CabFile .cab拡張子で圧縮されたシナリオかどうかを判定します。</maml:para>
+            <maml:para>-ZipFile .zip拡張子で圧縮されたシナリオかどうかを判定します。</maml:para>
+            <maml:para>-WsnFile .wsn拡張子で圧縮されたシナリオかどうかを判定します。</maml:para>
           </maml:description>
           <command:parameterValueGroup>
             <command:parameterValue required="false" command:variableLength="false">Any</command:parameterValue>
@@ -623,7 +629,11 @@ Classic      Directory            0        0 交易都市リューン         �
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
           <maml:name>ScenarioType</maml:name>
           <maml:description>
-            <maml:para>{{ Fill ScenarioType Description }}</maml:para>
+            <maml:para>シナリオ形式を指定します。</maml:para>
+            <maml:para>-Any シナリオ形式を考慮しません。</maml:para>
+            <maml:para>-Classic クラシック形式のシナリオかどうかを判定します。</maml:para>
+            <maml:para>-Next NEXT形式のシナリオかどうかを判定します。</maml:para>
+            <maml:para>-Wsn WSN形式のシナリオかどうかを判定します。</maml:para>
           </maml:description>
           <command:parameterValueGroup>
             <command:parameterValue required="false" command:variableLength="false">Any</command:parameterValue>
@@ -656,7 +666,12 @@ Classic      Directory            0        0 交易都市リューン         �
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
           <maml:name>ContainerType</maml:name>
           <maml:description>
-            <maml:para>{{ Fill ContainerType Description }}</maml:para>
+            <maml:para>シナリオ格納形式を指定します。</maml:para>
+            <maml:para>-Any シナリオ格納形式を考慮しません。</maml:para>
+            <maml:para>-Directory ディレクトリに格納されたシナリオかどうかを判定します。</maml:para>
+            <maml:para>-CabFile .cab拡張子で圧縮されたシナリオかどうかを判定します。</maml:para>
+            <maml:para>-ZipFile .zip拡張子で圧縮されたシナリオかどうかを判定します。</maml:para>
+            <maml:para>-WsnFile .wsn拡張子で圧縮されたシナリオかどうかを判定します。</maml:para>
           </maml:description>
           <command:parameterValueGroup>
             <command:parameterValue required="false" command:variableLength="false">Any</command:parameterValue>
@@ -675,7 +690,11 @@ Classic      Directory            0        0 交易都市リューン         �
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
           <maml:name>ScenarioType</maml:name>
           <maml:description>
-            <maml:para>{{ Fill ScenarioType Description }}</maml:para>
+            <maml:para>シナリオ形式を指定します。</maml:para>
+            <maml:para>-Any シナリオ形式を考慮しません。</maml:para>
+            <maml:para>-Classic クラシック形式のシナリオかどうかを判定します。</maml:para>
+            <maml:para>-Next NEXT形式のシナリオかどうかを判定します。</maml:para>
+            <maml:para>-Wsn WSN形式のシナリオかどうかを判定します。</maml:para>
           </maml:description>
           <command:parameterValueGroup>
             <command:parameterValue required="false" command:variableLength="false">Any</command:parameterValue>
@@ -696,7 +715,12 @@ Classic      Directory            0        0 交易都市リューン         �
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
         <maml:name>ContainerType</maml:name>
         <maml:description>
-          <maml:para>{{ Fill ContainerType Description }}</maml:para>
+          <maml:para>シナリオ格納形式を指定します。</maml:para>
+          <maml:para>-Any シナリオ格納形式を考慮しません。</maml:para>
+          <maml:para>-Directory ディレクトリに格納されたシナリオかどうかを判定します。</maml:para>
+          <maml:para>-CabFile .cab拡張子で圧縮されたシナリオかどうかを判定します。</maml:para>
+          <maml:para>-ZipFile .zip拡張子で圧縮されたシナリオかどうかを判定します。</maml:para>
+          <maml:para>-WsnFile .wsn拡張子で圧縮されたシナリオかどうかを判定します。</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">ContainerParameterType</command:parameterValue>
         <dev:type>
@@ -732,7 +756,11 @@ Classic      Directory            0        0 交易都市リューン         �
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
         <maml:name>ScenarioType</maml:name>
         <maml:description>
-          <maml:para>{{ Fill ScenarioType Description }}</maml:para>
+          <maml:para>シナリオ形式を指定します。</maml:para>
+          <maml:para>-Any シナリオ形式を考慮しません。</maml:para>
+          <maml:para>-Classic クラシック形式のシナリオかどうかを判定します。</maml:para>
+          <maml:para>-Next NEXT形式のシナリオかどうかを判定します。</maml:para>
+          <maml:para>-Wsn WSN形式のシナリオかどうかを判定します。</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">ScenarioParameterType</command:parameterValue>
         <dev:type>
