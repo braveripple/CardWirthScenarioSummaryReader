@@ -186,7 +186,7 @@ lscw -Recurse | Move-Item
 
 ### ワンライナーが想定通りに動くかどうか確認したい
   * Move-ItemやCopy-Itemなど変更を伴うコマンドレットは`-WhatIf`パラメータをつけることでどのような変更が起こるか確認できます。（実際の操作は行われません）
-    * 例えば現在のディレクトリにあるシナリオを対象レベル別のディレクトリに分類するワンライナーに-WhatIfをつけて実行すると以下のようになります。
+    * 例えば現在のディレクトリにあるシナリオを対象レベル別のディレクトリに分類するワンライナーに-WhatIfをつけて実行すると以下のようなメッセージが出力されます。（実際の移動は行われません）
 ```powershell
 lscw | Group-Object Level | % { $dir = mkdir $_.Name -Force; $_.Group | Move-Item -Destination $dir -WhatIf }
 ```
@@ -209,6 +209,6 @@ What if: Performing the operation "Move Directory" on target "Item: C:\Game\Card
 
 以下のライブラリを使用しました。
 
-* [CardWirthScenarioSummaryReaderTool](https://github.com/braveripple/CardWirthScenarioSummaryReaderTool)
+* [braveripple/CardWirthScenarioSummaryReaderTool](https://github.com/braveripple/CardWirthScenarioSummaryReaderTool)
 * [icsharpcode/SharpZipLib](https://github.com/icsharpcode/SharpZipLib)
 * [MSFTCompressionCab](https://www.nuget.org/packages/MSFTCompressionCab)
