@@ -149,6 +149,24 @@ Test-CardWirthScenario ([-Path] <String[]> | -LiteralPath <String[]>)
 |Level*|対象レベル|
 |PSPath*|シナリオ格納場所の絶対パス(FullNameと同じ)|
 
+## 一歩踏み込んだ使い方
+
+現在のディレクトリにあるディレクトリに格納されたシナリオをZIP圧縮するワンライナー
+```powershell
+lscw -Directory | % { Compress-Archive -LiteralPath $_.FullName -DestinationPath ($_.FullName + ".zip") -Force }
+```
+
+現在のディレクトリにあるシナリオを対象レベル別のディレクトリに分類するワンライナー
+```powershell
+lscw | Group-Object -Property Level | % { $dir = mkdir $_.Name -Force; $_.Group | Move-Item -Destination $dir }
+```
+
+現在のディレクトリ以下にあるシナリオを現在のディレクトリに持ってくるワンライナー
+```powershell
+lscw -Recurse | Move-Item
+```
+> * もし、同じ名前のディレクトリや圧縮ファイルが異なるディレクトリに別々に存在する場合でも、Move-Itemに-Forceオプションをつけない限りは上書きされることはありません。
+
 ## ❓ 想定される質問
 
 ### 日本語が文字化けする
@@ -165,23 +183,18 @@ Test-CardWirthScenario ([-Path] <String[]> | -LiteralPath <String[]>)
     * 圧縮ファイルがパスワード付きZIPで解析できなかった。
     * Summary.wsm、Summary.xmlの読み込みに失敗した。
 
-## 一歩踏み込んだ使い方
+### ワンライナーが想定通りに動くかどうか確認したい
+  * Move-ItemやCopy-Itemなど変更を伴うコマンドレットは`-WhatIf`パラメータをつけることでどのような変更が起こるか確認できます。（実際の操作は行われません）
+  * 例えば現在のディレクトリにあるシナリオを対象レベル別のディレクトリに分類するワンライナーに-WhatIfをつけて実行すると以下のようになります。
+  * ```powershell
+    lscw | Group-Object -Property Level | % { $dir = mkdir $_.Name -Force; $_.Group | Move-Item -Destination $dir -WhatIf }
+    ```
+    
+  * ```powershell
+    What if: Performing the operation "Move Directory" on target "Item: C:\Game\CardWirth\Scenario\Ask\ゴブリンの洞窟 Destination: C:\Game\CardWirth\Scenario\Ask\対象レベル：01～03\ゴブリンの洞窟".
+    What if: Performing the operation "Move Directory" on target "Item: C:\Game\CardWirth\Scenario\Ask\交易都市リューン Destination: C:\Game\CardWirth\Scenario\Ask\対象レベル：なし\交易都市リューン".
+    ```
 
-現在のディレクトリにあるディレクトリに格納されたシナリオをZIP圧縮するワンライナー
-```powershell
-lscw -Directory | % { Compress-Archive -LiteralPath $_.FullName -DestinationPath ($_.FullName + ".zip") -Force }
-```
-
-現在のディレクトリにあるシナリオを対象レベル別のディレクトリに分類するワンライナー
-```powershell
-lscw | Group-Object -Property Level | % { $dir = mkdir $_.Name -Force; $_.Group | % { Move-Item -LiteralPath $_.FullName -Destination $dir.FullName } }
-```
-
-現在のディレクトリ以下にあるシナリオを現在のディレクトリに持ってくるワンライナー
-```powershell
-lscw -Recurse | Move-Item
-```
-> * もし、同じ名前のディレクトリや圧縮ファイルが異なるディレクトリに別々に存在する場合でも、Move-Itemに-Forceオプションをつけない限りは上書きされることはありません。
 
 
 ## 制作者
