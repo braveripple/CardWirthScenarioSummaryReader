@@ -12,7 +12,8 @@ CardWirthScenarioSummaryReaderはCardWirth非公式のツールです。
 ## 💻 動作環境
 * Windows
   * Windows PowerShell 5.1 (32bit/64bit)
-  * PowerShell Core (32bit/64bit)
+  * PowerShell Core 6 (32bit/64bit)
+  * PowerShell 7 (32bit/64bit)
 
 ## インストール方法
 
