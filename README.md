@@ -214,9 +214,7 @@ What if: Performing the operation "Move Directory" on target "Item: C:\Game\Card
 What if: Performing the operation "Move Directory" on target "Item: C:\Game\CardWirth\Scenario\Ask\交易都市リューン Destination: C:\Game\CardWirth\Scenario\Ask\対象レベル：なし\交易都市リューン".
 ```
 
-
-
-## 制作者
+## 作成者
 
 [@braveripple](https://github.com/braveripple)
 
