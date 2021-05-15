@@ -37,7 +37,7 @@ Install-Module -Name CardWirthScenarioSummaryReader -Scope CurrentUser
 * シナリオのコピー、移動、圧縮、解凍
 * etc
 
-詳しくは[一歩踏み込んだ使い方](#一歩踏み込んだ使い方)を確認してください。
+詳しくは[一歩踏み込んだ使い方](#-一歩踏み込んだ使い方)を確認してください。
 
 ### 対応シナリオ形式
 以下のシナリオ形式に対応しています。
@@ -154,7 +154,7 @@ Test-CardWirthScenario ([-Path] <String[]> | -LiteralPath <String[]>)
 |Level *|対象レベル|
 |PSPath *|シナリオ格納場所の絶対パス(FullNameと同じ)|
 
-## 🍀一歩踏み込んだ使い方
+## 🍀 一歩踏み込んだ使い方
 
 CWSSRのコマンドレットとPowerShellのコマンドレットを組み合わせることで色々できます。
 
