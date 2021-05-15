@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Types>
+  <Type>
+    <Name>BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.ScenarioSummary</Name>
+    <Members>
+      <MemberSet>
+        <Name>PSStandardMembers</Name>
+        <Members>
+          <PropertySet>
+            <Name>DefaultDisplayPropertySet</Name>
+            <ReferencedProperties>
+              <Name>ScenarioType</Name>
+              <Name>ContainerType</Name>
+              <Name>LevelMin</Name>
+              <Name>LevelMax</Name>
+              <Name>Name</Name>
+              <Name>Author</Name>
+              <Name>Description</Name>
+            </ReferencedProperties>
+          </PropertySet>
+        </Members>
+      </MemberSet>
+      <!-- PSPath -->
+      <AliasProperty>
+        <Name>PSPath</Name>
+        <ReferencedMemberName>
+          FullName
+        </ReferencedMemberName>
+      </AliasProperty>
+      <!-- 対象レベル -->
+      <ScriptProperty>
+        <Name>Level</Name>
+        <GetScriptBlock>
+          $levelMin = $this.LevelMin
+          $levelMax = $this.LevelMax
+          $levelLabel = "対象レベル："
+          
+          if ($levelMin -eq $levelMax) {
+            if ($levelMin -eq 0) {
+              "${levelLabel}なし"
+            } else {
+              "${levelLabel}{0:00}" -f ${levelMin}
+            }
+          } else {
+            if ($levelMax -eq 0) {
+              "${levelLabel}{0:00}～" -f $levelMin
+            } else {
+              "${levelLabel}{0:00}～{1:00}" -f $levelMin, $levelMax
+            }
+          }
+        </GetScriptBlock>
+      </ScriptProperty>
+    </Members>
+  </Type>
+</Types>

@@ -7,6 +7,7 @@
     <Description>PowerShell module that get CardWirth scenario information from the Summary file in a directory or archive file.</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Copyright>© 2021 braveripple.</Copyright>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -26,37 +27,33 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\Libs\MSFTCompressionCab\Microsoft.Deployment.Compression.dll">
-      <Link>Microsoft.Deployment.Compression.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="..\Libs\MSFTCompressionCab\Microsoft.Deployment.Compression.Cab.dll">
-      <Link>Microsoft.Deployment.Compression.Cab.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="..\Libs\SharpZipLib\ICSharpCode.SharpZipLib.dll">
-      <Link>ICSharpCode.SharpZipLib.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <Reference Include="CardWirthScenarioSummaryReaderTool">
       <HintPath>..\Libs\CardWirthScenarioSummaryReaderTool\CardWirthScenarioSummaryReaderTool.dll</HintPath>
       <Private>true</Private>
     </Reference>
-    <None Update="CardWirthScenarioSummaryReader.dll-Help.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <None Update="Module\CardWirthScenarioSummaryReader\CardWirthScenarioSummaryReader.dll-Help.xml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-    <None Update="CardWirthScenarioSummaryReader.format.ps1xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <None Update="Module\CardWirthScenarioSummaryReader\CardWirthScenarioSummaryReader.format.ps1xml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-    <None Update="CardWirthScenarioSummaryReader.psd1">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <None Update="Module\CardWirthScenarioSummaryReader\CardWirthScenarioSummaryReader.psd1">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-    <None Update="CardWirthScenarioSummaryReader.psm1">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <None Update="Module\CardWirthScenarioSummaryReader\CardWirthScenarioSummaryReader.psm1">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-    <None Update="CardWirthScenarioSummaryReader.types.ps1xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <None Update="Module\CardWirthScenarioSummaryReader\CardWirthScenarioSummaryReader.types.ps1xml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Module\CardWirthScenarioSummaryReader\lib\net\" />
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="SET modulePath=&quot;$(TargetDir)$(ProjectName)&quot;&#xD;&#xA;mkdir &quot;%25modulePath%25&quot;&#xD;&#xA;xcopy /e &quot;$(ProjectDir)\Module\$(ProjectName)&quot; &quot;%25modulePath%25&quot; /Y&#xD;&#xA;xcopy &quot;$(TargetDir)&quot; &quot;%25modulePath%25\lib\netstandard2.0&quot; /Y&#xD;&#xA;xcopy &quot;$(SolutionDir)\Libs\SharpZipLib\*.dll&quot; &quot;%25modulePath%25\lib\netstandard2.0&quot; /Y&#xD;&#xA;xcopy &quot;$(SolutionDir)\Libs\MSFTCompressionCab\*.dll&quot; &quot;%25modulePath%25\lib\net&quot; /Y&#xD;&#xA;" />
+  </Target>
 
 </Project>
