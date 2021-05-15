@@ -187,13 +187,13 @@ lscw -Recurse | Move-Item
 ### ワンライナーが想定通りに動くかどうか確認したい
   * Move-ItemやCopy-Itemなど変更を伴うコマンドレットは`-WhatIf`パラメータをつけることでどのような変更が起こるか確認できます。（実際の操作は行われません）
     * 例えば現在のディレクトリにあるシナリオを対象レベル別のディレクトリに分類するワンライナーに-WhatIfをつけて実行すると以下のようになります。
-    * ```powershell
-      lscw | Group-Object Level | % { $dir = mkdir $_.Name -Force; $_.Group | Move-Item -Destination $dir -WhatIf }
-      ```
-    * ```powershell
-      What if: Performing the operation "Move Directory" on target "Item: C:\Game\CardWirth\Scenario\Ask\ゴブリンの洞窟 Destination: C:\Game\CardWirth\Scenario\Ask\対象レベル：01～03\ゴブリンの洞窟".
-      What if: Performing the operation "Move Directory" on target "Item: C:\Game\CardWirth\Scenario\Ask\交易都市リューン Destination: C:\Game\CardWirth\Scenario\Ask\対象レベル：なし\交易都市リューン".
-      ```
+```powershell
+lscw | Group-Object Level | % { $dir = mkdir $_.Name -Force; $_.Group | Move-Item -Destination $dir -WhatIf }
+```
+```txt
+What if: Performing the operation "Move Directory" on target "Item: C:\Game\CardWirth\Scenario\Ask\ゴブリンの洞窟 Destination: C:\Game\CardWirth\Scenario\Ask\対象レベル：01～03\ゴブリンの洞窟".
+What if: Performing the operation "Move Directory" on target "Item: C:\Game\CardWirth\Scenario\Ask\交易都市リューン Destination: C:\Game\CardWirth\Scenario\Ask\対象レベル：なし\交易都市リューン".
+```
 
 
 
@@ -209,6 +209,6 @@ lscw -Recurse | Move-Item
 
 以下のライブラリを使用しました。
 
-* CardWirthScenarioSummaryReaderTool(自作)
+* [CardWirthScenarioSummaryReaderTool](https://github.com/braveripple/CardWirthScenarioSummaryReaderTool)
 * [icsharpcode/SharpZipLib](https://github.com/icsharpcode/SharpZipLib)
 * [MSFTCompressionCab](https://www.nuget.org/packages/MSFTCompressionCab)
