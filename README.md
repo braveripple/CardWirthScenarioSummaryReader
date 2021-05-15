@@ -161,7 +161,7 @@ CWSSRのコマンドレットとPowerShellの既存のコマンドレットを�
 * 現在のディレクトリからゴブ洞改変シナリオらしきものを探すワンライナー
 > `?`は`Where-Object`のエイリアスです。
 ```powershell
-lscw | ? { $_.Name -like "*洞*" }
+lscw | ? { $_.Name -like "*洞*" -or $_.Description -like "*ゴブ洞改変*" }
 ```
 
 * 現在のディレクトリから6人用シナリオを探すワンライナー
