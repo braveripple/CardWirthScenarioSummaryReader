@@ -15,6 +15,9 @@ CardWirthScenarioSummaryReader(以下、CWSSR)はCardWirth非公式のツール�
   * PowerShell Core 6 (32bit/64bit)
   * PowerShell 7 (32bit/64bit)
 
+最新のPowerShellは以下のリンクからダウンロードできます。
+* https://github.com/PowerShell/PowerShell
+
 ## インストール方法
 
 [PowerShell Gallery](https://www.powershellgallery.com/packages/CardWirthScenarioSummaryReader/)で公開する予定
@@ -151,7 +154,7 @@ Test-CardWirthScenario ([-Path] <String[]> | -LiteralPath <String[]>)
 
 ## 🍀一歩踏み込んだ使い方
 
-CWSSRのコマンドレットと既存のPowerShellコマンドレットを組み合わせることで色々できます。
+CWSSRのコマンドレットとPowerShellの既存のコマンドレットを組み合わせることで色々できます。
 
 以下はその一例です。
 
