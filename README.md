@@ -20,7 +20,7 @@ CardWirthScenarioSummaryReader(以下、CWSSR)はCardWirth非公式のツール�
 
 ## インストール方法
 
-[PowerShell Gallery](https://www.powershellgallery.com/packages/CardWirthScenarioSummaryReader/)で公開する予定
+[PowerShell Gallery](https://www.powershellgallery.com/packages/CardWirthScenarioSummaryReader/)で公開しています。
 ```powershell
 Install-Module -Name CardWirthScenarioSummaryReader -Scope CurrentUser
 ```
